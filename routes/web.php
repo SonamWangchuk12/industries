@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,11 +12,23 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', function () {
-    return view('welcome');
-});
 
+return redirect()->action('VisitorController@index');
+});
 Auth::routes();
 Route::resource('sliders','SliderController');
-Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('cmdatas','CMDataController');
+Route::resource('ministers','MinisterController');
+Route::resource('abouts','AboutController');
+Route::resource('rtis','RTIController');
+Route::resource('circulars','CircularController');
+Route::resource('notifications','NotificationController');
+Route::resource('tenders','TenderController');
+
+Route::get('/visitors/rtis','VisitorController@rtipage')->name('visitor.rti');
+
+
+Route::resource('visitors','VisitorController');
+

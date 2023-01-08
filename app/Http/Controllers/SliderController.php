@@ -54,7 +54,7 @@ class SliderController extends Controller
         }
 
         Slider::create($data);
-        return redirect()->back()->with('message','Slider created successfully!!!');
+        return redirect()->back()->with('success','Slider created successfully!!!');
     }
     public function edit($id)
     {

@@ -8,10 +8,6 @@
       <title>Admin Login|UDD</title>
       
 
-      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
-  
-      <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
-      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>      
       <!-- Favicon -->
       <link rel="shortcut icon" href="{{asset('assets/admin/assets/images/favicon.ico')}}" />
       <link rel="stylesheet" href="{{asset('assets/admin/assets/css/backend-plugin.min.css')}}">
@@ -32,7 +28,7 @@
       
       <div class="iq-sidebar  sidebar-default ">
           <div class="iq-sidebar-logo d-flex align-items-center justify-content-between">
-              <a href="../backend/index.html" class="header-logo">
+              <a href="{{route('home')}}" class="header-logo">
                   <img src="{{asset('assets/admin/assets/images/logo.png')}}" class="img-fluid rounded-normal light-logo" alt="logo"><h5 class="logo-title light-logo ml-3">POSDash</h5>
               </a>
               <div class="iq-menu-bt-sidebar ml-0">
