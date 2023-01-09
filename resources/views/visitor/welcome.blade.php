@@ -102,50 +102,6 @@
       </div>
     </section><!-- End About Section -->
 
-    <!-- ======= Counts Section ======= -->
-    {{-- <section id="counts" class="counts">
-      <div class="container">
-
-        <div class="row no-gutters">
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
-            <div class="count-box">
-              <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Happy Clients</strong> consequuntur quae</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
-            <div class="count-box">
-              <i class="bi bi-journal-richtext"></i>
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Projects</strong> adipisci atque cum quia aut</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
-            <div class="count-box">
-              <i class="bi bi-headset"></i>
-              <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Hours Of Support</strong> aut commodi quaerat</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
-            <div class="count-box">
-              <i class="bi bi-people"></i>
-              <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Hard Workers</strong> rerum asperiores dolor</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section> --}}
-    <!-- End Counts Section -->
-
    
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
@@ -200,30 +156,27 @@
 
         <div class="section-title">
           <h2>Gallery</h2>
-          {{-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> --}}
-        </div>
-
-
-        <div class="row portfolio-container">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>App 1</h4>
-                <p>App</p>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
           </div>
 
 
-        </div>
-
+        <div class="row portfolio-container">
+          @foreach($galleries as $gallery)
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+             <a href="#"> 
+              <img src="{{asset('galleryimg')}}/{{$gallery->photo}}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>{{$gallery->name}}</h4>
+              </a>
+              </div>
+            </div>
+          </div>
+            @endforeach
       </div>
+          
+      </div>
+        
+
     </section><!-- End Portfolio Section -->
 
     <!-- ======= Team Section ======= -->

@@ -16,6 +16,8 @@ class GalleryController extends Controller
     public function index()
     {
         //
+        $galleries= Gallery::all();
+        return view('admin.gallery.index',compact('galleries'));
     }
 
     /**
@@ -26,6 +28,7 @@ class GalleryController extends Controller
     public function create()
     {
         //
+        return view('admin.gallery.create');
     }
 
     /**
@@ -37,6 +40,24 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, ['name'=>'required']);
+        $data=$request->all();
+        if ($request->hasFile('photo')) {
+            //  Let's do everything here
+            if ($request->file('photo')->isValid()) {
+                //
+                $validated = $request->validate([
+                    'name' => 'string',
+                    'photo' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
+                ]);
+                $fileName = "galleryimg-"  . request()->photo->hashName();
+                $request->photo->move(public_path('galleryimg'),$fileName);
+                $data['photo']=$fileName;
+            }
+        }
+
+        Gallery::create($data);
+        return redirect()->back()->with('success','Gallery image added successfully!!!');
     }
 
     /**
@@ -79,8 +100,11 @@ class GalleryController extends Controller
      * @param  \App\Gallery  $gallery
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Gallery $gallery)
+    public function destroy($id)
     {
         //
+        $galleries=Gallery::find($id);
+        $galleries->delete();
+        return redirect()->route('galleries.index')->with('message','Gallery image deleted successfully!!!');
     }
 }

@@ -8,14 +8,10 @@ use Illuminate\Http\Request;
 
 class OrgStructureController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $orgstructures= OrgStructure::all();
+        return view('admin.orgstructure.index',compact('orgstructures'));
     }
 
     /**
@@ -25,7 +21,7 @@ class OrgStructureController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.orgstructure.create');
     }
 
     /**
@@ -36,51 +32,54 @@ class OrgStructureController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\OrgStructure  $orgStructure
-     * @return \Illuminate\Http\Response
-     */
-    public function show(OrgStructure $orgStructure)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\OrgStructure  $orgStructure
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(OrgStructure $orgStructure)
+
+    // $cleaned_name = strip_tags($request->input('content'));
+    // $data['content'] = $cleaned_name;
+
+        $this->validate($request, ['name'=>'required','content'=>'required']);
+
+      $data=$request->all();
+        
+
+    //    $data=  Purifier::clean(Input::get($request->all()));
+
+        OrgStructure::create($data);
+        return redirect()->back()->with('success','Org Structure  content created
+        successfully!!!');
+    }
+    public function edit($id)
     {
-        //
+        $orgstructures = OrgStructure::find($id);
+        return view('admin.orgstructure.edit',compact('orgstructures'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\OrgStructure  $orgStructure
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, OrgStructure $orgStructure)
+    public function update(Request $request, $id)
     {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\OrgStructure  $orgStructure
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(OrgStructure $orgStructure)
+
+        $this->validate($request, ['name'=>'required','content'=>'required'
+        ]);
+        $orgstructures = OrgStructure::find($id);
+      
+          $data=$request->all();
+        
+       
+        $orgstructures->update($data);
+        return redirect()->route('orgstructures.index')->with('success','Record updated successfully!!!');
+    }
+    public function destroy($id)
     {
-        //
+        $orgstructures=OrgStructure::find($id);
+        $orgstructures->delete();
+        return redirect()->route('orgstructures.index')->with('success','Record deleted successfully!!!');
     }
 }

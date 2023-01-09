@@ -26,9 +26,13 @@ Route::resource('rtis','RTIController');
 Route::resource('circulars','CircularController');
 Route::resource('notifications','NotificationController');
 Route::resource('tenders','TenderController');
+Route::resource('galleries','GalleryController');
+Route::resource('orgstructures','OrgStructureController');
+
+
 
 Route::get('/visitors/rtis','VisitorController@rtipage')->name('visitor.rti');
-
+Route::get('/visitors/orgview','VisitorController@orgview')->name('visitor.orgview');
 
 Route::resource('visitors','VisitorController');
 

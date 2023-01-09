@@ -110,6 +110,28 @@
                     <i class="fas fa-edit"></i></td>
                    
               </tr>
+              <tr>
+                <th scope="row">2.</th>
+                <td>Gallery</td>
+          
+                    <td> <a href="{{route('galleries.create')}}">
+                    <i class="fas fa-edit"></i></td>
+          
+                    <td> <a href="{{route('galleries.index')}}">
+                    <i class="fas fa-edit"></i></td>
+                   
+              </tr>
+              <tr>
+                <th scope="row">2.</th>
+                <td>Organization Structure</td>
+          
+                    <td> <a href="{{route('orgstructures.create')}}">
+                    <i class="fas fa-edit"></i></td>
+          
+                    <td> <a href="{{route('orgstructures.index')}}">
+                    <i class="fas fa-edit"></i></td>
+                   
+              </tr>
                   </tbody>
             </table>
        </div>

@@ -26,7 +26,7 @@
 <script src="{{asset('assets/admin/assets/js/app.js')}}"></script>
 
 
-<link rel="shortcut icon" href="{{asset('assets/admin/assets/images/favicon.ico')}}" />
+<link rel="icon" href="{{asset('assets/img/logo.png')}}" />
 <link rel="stylesheet" href="{{asset('assets/admin/assets/css/backend-plugin.min.css')}}">
 <link rel="stylesheet" href="{{asset('assets/admin/assets/css/backend.css?v=1.0.0')}}">
 <link rel="stylesheet" href="{{asset('assets/admin/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css')}}">
@@ -106,7 +106,7 @@
                 <li><a class="nav-link scrollto"  href="#services">Sections</a></li>
                 <li><a class="nav-link scrollto "  href="#portfolio">Schemes/Programs</a></li>
                 <li><a class="nav-link scrollto"  href="#team">Plans</a></li>
-                <li><a class="nav-link scrollto"  href="#team">Organizational Chart</a></li>
+                <li><a class="nav-link scrollto"  href="{{route('visitor.orgview')}}">Organizational Chart</a></li>
                 <li><a class="nav-link scrollto"  href="#team">Gallery</a></li>
                 <li><a class="nav-link scrollto"  href="#team">Scenarios</a></li>
                 <li class="dropdown"><a  href="#"><span>Downloads</span> <i class="bi bi-chevron-down"></i></a>

@@ -11,6 +11,11 @@ use App\Notification;
 use App\Tender;
 use App\Circular;
 use App\RTI;
+use App\Gallery;
+use App\OrgStructure;
+
+
+
 
 class VisitorController extends Controller
 {
@@ -23,11 +28,12 @@ class VisitorController extends Controller
     {
         //
         $sliders= Slider::orderBy('id', 'desc')->take(3)->get();
+        $galleries= Gallery::orderBy('id', 'desc')->take(9)->get();
         $abouts= About::latest()->first();
         $notifications= Notification::orderBy('id', 'desc')->take(5)->get();
         $tenders= Tender::orderBy('id', 'desc')->take(5)->get();
         $circulars= Circular::orderBy('id', 'desc')->take(5)->get();
-        return view('visitor.welcome',compact('sliders','abouts','notifications','circulars','tenders'));
+        return view('visitor.welcome',compact('sliders','abouts','notifications','circulars','tenders','galleries'));
     }
 
     /**
@@ -101,5 +107,11 @@ class VisitorController extends Controller
         //
         $rtis= RTI::orderBy('id', 'desc')->get();
         return view('visitor.rti',compact('rtis'));
+    }
+    public function orgview(Request $request)
+    {
+        //
+        $orgstructures= OrgStructure::latest()->first();
+        return view('visitor.orgstructureview',compact('orgstructures'));
     }
 }
