@@ -163,11 +163,11 @@
           @foreach($galleries as $gallery)
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
-             <a href="#"> 
+           
               <img src="{{asset('galleryimg')}}/{{$gallery->photo}}" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>{{$gallery->name}}</h4>
-              </a>
+              
               </div>
             </div>
           </div>

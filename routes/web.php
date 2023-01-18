@@ -33,6 +33,8 @@ Route::resource('orgstructures','OrgStructureController');
 
 Route::get('/visitors/rtis','VisitorController@rtipage')->name('visitor.rti');
 Route::get('/visitors/orgview','VisitorController@orgview')->name('visitor.orgview');
+Route::get('/visitors/gallery','VisitorController@gallery')->name('visitor.gallery');
+
 
 Route::resource('visitors','VisitorController');
 

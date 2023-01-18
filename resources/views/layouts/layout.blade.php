@@ -107,7 +107,7 @@
                 <li><a class="nav-link scrollto "  href="#portfolio">Schemes/Programs</a></li>
                 <li><a class="nav-link scrollto"  href="#team">Plans</a></li>
                 <li><a class="nav-link scrollto"  href="{{route('visitor.orgview')}}">Organizational Chart</a></li>
-                <li><a class="nav-link scrollto"  href="#team">Gallery</a></li>
+                <li><a class="nav-link scrollto"  href="{{route('visitor.gallery')}}">Gallery</a></li>
                 <li><a class="nav-link scrollto"  href="#team">Scenarios</a></li>
                 <li class="dropdown"><a  href="#"><span>Downloads</span> <i class="bi bi-chevron-down"></i></a>
                   <ul>

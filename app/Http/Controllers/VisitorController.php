@@ -108,6 +108,12 @@ class VisitorController extends Controller
         $rtis= RTI::orderBy('id', 'desc')->get();
         return view('visitor.rti',compact('rtis'));
     }
+    public function gallery(Request $request)
+    {
+        //
+        $galleries= Gallery::orderBy('id', 'desc')->get();
+        return view('visitor.gallery',compact('galleries'));
+    }
     public function orgview(Request $request)
     {
         //
