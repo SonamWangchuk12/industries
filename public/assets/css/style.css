@@ -1670,3 +1670,47 @@ section {
     font-size: 13px;
     color: #fff;
 }
+
+
+.row2 {
+    display: flex;
+    overflow: hidden;
+     width: 100%;
+     margin-left: auto;
+     margin-right: auto;
+     overflow: hidden;
+     color:white;
+   }
+  
+  .imagegroup2 {
+    display: flex;
+    min-width: 80%;
+   }
+  
+  .imagegroup2 img{
+   flex-shrink: 20%;
+   object-fit: scale-down;
+   height: 150px;
+   border: 3px solid white;
+  }
+  
+  .imagegroup2 {
+    animation: travel1 30s ease-out infinite;
+    /* animation-name: slider;
+    animation-duration: 30s;
+    animation-delay: 10s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: backwards;
+    animation-play-state: running; */
+   }
+  
+  @keyframes travel1 {
+    0%, 100% {
+       transform: translate3d(0,0,0);
+     }
+    50% {
+       transform: translate3d(-50%,0,0);
+     }
+  }

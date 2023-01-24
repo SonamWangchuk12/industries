@@ -13,9 +13,12 @@ use App\Circular;
 use App\RTI;
 use App\Gallery;
 use App\OrgStructure;
-
-
-
+use App\Scheme;
+use App\SchemeAttachment;
+use App\Plan;
+use App\PlanAttachment;
+use App\Act;
+use App\ActAttachment;
 
 class VisitorController extends Controller
 {
@@ -107,6 +110,72 @@ class VisitorController extends Controller
         //
         $rtis= RTI::orderBy('id', 'desc')->get();
         return view('visitor.rti',compact('rtis'));
+    }
+    public function tender(Request $request)
+    {
+        //
+        $tenders= Tender::orderBy('id', 'desc')->get();
+        return view('visitor.tender',compact('tenders'));
+    }
+    public function circular(Request $request)
+    {
+        //
+        $circulars= Circular::orderBy('id', 'desc')->get();
+        return view('visitor.circular',compact('circulars'));
+    }
+    public function notification(Request $request)
+    {
+        //
+        $notifications= Notification::orderBy('id', 'desc')->get();
+        return view('visitor.notification',compact('notifications'));
+    }
+
+    public function scheme(Request $request)
+    {
+        //
+        $schemes= Scheme::orderBy('id', 'desc')->get();
+        return view('visitor.scheme',compact('schemes'));
+    }
+    public function schemedetail($id)
+    {
+        //Order::where('user_id', auth()->id)->get();
+        $schemes= Scheme::find($id);
+        $scheme_attachments= SchemeAttachment::where('scheme_id',$id)->get();
+        return view('visitor.schemedetails',compact('schemes','scheme_attachments'));
+    }
+
+    public function plan(Request $request)
+    {
+        //
+        $plans= Plan::orderBy('id', 'desc')->get();
+        return view('visitor.plan',compact('plans'));
+    }
+    public function plandetail($id)
+    {
+        //Order::where('user_id', auth()->id)->get();
+        $plans= Plan::find($id);
+        $plan_attachments= PlanAttachment::where('plan_id',$id)->get();
+        return view('visitor.plandetails',compact('plans','plan_attachments'));
+    }
+
+    public function act(Request $request)
+    {
+        //
+        $acts= Act::orderBy('id', 'desc')->get();
+        return view('visitor.act',compact('acts'));
+    }
+    public function actdetail($id)
+    {
+        //Order::where('user_id', auth()->id)->get();
+        $acts= Act::find($id);
+        $act_attachments= ActAttachment::where('act_id',$id)->get();
+        return view('visitor.actdetails',compact('acts','act_attachments'));
+    }
+    public function annualreport(Request $request)
+    {
+        //
+        // $annualdocs= RTI::orderBy('id', 'desc')->get();
+        // return view('visitor.annualreport',compact('annualdoc'));
     }
     public function gallery(Request $request)
     {

@@ -132,6 +132,39 @@
                     <i class="fas fa-edit"></i></td>
                    
               </tr>
+              <tr>
+                <th scope="row">2.</th>
+                <td>Schemes/Programmes</td>
+          
+                    <td> <a href="{{route('schemes.create')}}">
+                    <i class="fas fa-edit"></i></td>
+          
+                    <td> <a href="{{route('schemes.index')}}">
+                    <i class="fas fa-edit"></i></td>
+                   
+              </tr>
+              <tr>
+                <th scope="row">2.</th>
+                <td>Plans</td>
+          
+                    <td> <a href="{{route('plans.create')}}">
+                    <i class="fas fa-edit"></i></td>
+          
+                    <td> <a href="{{route('plans.index')}}">
+                    <i class="fas fa-edit"></i></td>
+                   
+              </tr>
+              <tr>
+                <th scope="row">2.</th>
+                <td>Acts and Regulations</td>
+          
+                    <td> <a href="{{route('acts.create')}}">
+                    <i class="fas fa-edit"></i></td>
+          
+                    <td> <a href="{{route('acts.index')}}">
+                    <i class="fas fa-edit"></i></td>
+                   
+              </tr>
                   </tbody>
             </table>
        </div>

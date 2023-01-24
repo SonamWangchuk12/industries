@@ -12,13 +12,7 @@
           <!-- Slide 1 -->
           <div class="carousel-item active" style="background-image:url('{{asset('sliderphoto')}}/{{$sliders[0]->document}}')">
             <div class="carousel-container">
-              {{-- <div class="carousel-content">
-                <h2 class="animate__animated animate__fadeInDown">Grow Your Business</h2>
-                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                <div>
-                  <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
-                </div>
-              </div> --}}
+             
             </div>
           </div>
 
@@ -26,13 +20,7 @@
           @for ($i=1;$i<3;$i++)
           <div class="carousel-item" style="background-image:url('{{asset('sliderphoto')}}/{{$sliders[$i]->document}}')">
             <div class="carousel-container">
-              {{-- <div class="carousel-content">
-                <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor</h2>
-                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                <div>
-                  <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
-                </div>
-              </div> --}}
+            
             </div>
           </div>
           @endfor
@@ -71,28 +59,7 @@
                 {!! $abouts->content !!} 
               </p>
 
-              {{-- <div class="row">
-                <div class="col-md-6 icon-box">
-                  <i class="bx bx-receipt"></i>
-                  <h4>Corporis voluptates sit</h4>
-                  <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
-                </div>
-                <div class="col-md-6 icon-box">
-                  <i class="bx bx-cube-alt"></i>
-                  <h4>Ullamco laboris nisi</h4>
-                  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
-                </div>
-                <div class="col-md-6 icon-box">
-                  <i class="bx bx-images"></i>
-                  <h4>Labore consequatur</h4>
-                  <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
-                </div>
-                <div class="col-md-6 icon-box">
-                  <i class="bx bx-shield"></i>
-                  <h4>Beatae veritatis</h4>
-                  <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
-                </div>
-              </div> --}}
+              
 
               
             </div><!-- End .content-->
@@ -186,7 +153,7 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Updates</h2>
+          <h2>Latest Updates</h2>
           {{-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> --}}
         </div>
 
@@ -204,7 +171,7 @@
                
               </ul>
               <div class="btn-wrap">
-                <a href="#" class="btn-buy">View More</a>
+                <a href="{{route('visitor.tenders')}}" class="btn-buy">View More</a>
               </div>
             </div>
           </div>
@@ -220,7 +187,7 @@
             @endforeach
               </ul>
               <div class="btn-wrap">
-                <a href="#" class="btn-buy">View More</a>
+                <a href="{{route('visitor.notifications')}}" class="btn-buy">View More</a>
               </div>
             </div>
           </div>
@@ -236,7 +203,7 @@
                 @endforeach
               </ul>
               <div class="btn-wrap">
-                <a href="#" class="btn-buy">View More</a>
+                <a href="{{route('visitor.circulars')}}" class="btn-buy">View More</a>
               </div>
             </div>
           </div>
@@ -323,7 +290,10 @@
             <div class="contact-address">
               <i class="bi bi-geo-alt"></i>
               <h3>Address</h3>
-              <address>A108 Adam Street, NY 535022, USA</address>
+              <address>Urban Development Department,
+                Government of Sikkim,
+                Hospital Dara,
+                Gangtok</address>
             </div>
           </div>
 
@@ -331,7 +301,7 @@
             <div class="contact-phone">
               <i class="bi bi-phone"></i>
               <h3>Phone Number</h3>
-              <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
+              <p><a href="tel:+155895548855">03592-202726</a></p>
             </div>
           </div>
 
@@ -339,74 +309,19 @@
             <div class="contact-email">
               <i class="bi bi-envelope"></i>
               <h3>Email</h3>
-              <p><a href="mailto:info@example.com">info@example.com</a></p>
+              <p><a href="mailto:info@example.com">udd[dot]gos[at]sikkim[dot]gov[dot]in<br/>udhdsikkim[at]gmail[dot]com</a></p>
             </div>
           </div>
 
         </div>
 
-        <div class="form">
-          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-            <div class="row">
-              <div class="col-md-6 form-group">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              </div>
-              <div class="col-md-6 form-group mt-3 mt-md-0">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
-              </div>
-            </div>
-            <div class="form-group mt-3">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-            </div>
-            <div class="form-group mt-3">
-              <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-            </div>
-            <div class="my-3">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
-            </div>
-            <div class="text-center"><button type="submit">Send Message</button></div>
-          </form>
-        </div>
+     
 
       </div>
     </section><!-- End Contact Section -->
 
      <!-- ======= Clients Section ======= -->
-     <section id="clients" class="clients section-bg">
-      <div class="container">
-
-        <div class="row">
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Clients Section -->
+   
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

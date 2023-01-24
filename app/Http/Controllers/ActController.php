@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\SchemeAttachment;
-use App\Scheme;
+use App\Act;
+use App\ActAttachment;
 use Illuminate\Http\Request;
 
-class SchemeController extends Controller
+class ActController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,8 @@ class SchemeController extends Controller
     public function index()
     {
         //
-        $schemes = Scheme::all();
-        return view('admin.scheme.index',compact('schemes'));
-
+        $acts = Act::all();
+        return view('admin.act.index',compact('acts'));
     }
 
     /**
@@ -29,7 +28,7 @@ class SchemeController extends Controller
     public function create()
     {
         //
-        return view('admin.scheme.create');
+        return view('admin.act.create');
     }
 
     /**
@@ -47,7 +46,7 @@ class SchemeController extends Controller
 
         ]);
         $data = $request->all();
-        $lastid = Scheme::create($data)->id;
+        $lastid = Act::create($data)->id;
         // dd($request->all());
         if (!empty($request->document)) {
             foreach ($request->document as $item => $value) {
@@ -57,26 +56,26 @@ class SchemeController extends Controller
                 $data1 = array(
                     'name'      => $docname[$item],
                     'document.*'=>'mimes:jpeg,jpg,png,pdf,png',
-                    'scheme_id' => $lastid,
+                    'act_id' => $lastid,
                     'document' => $document[$item],
                 );
                 // $fileName = "schemedoc-"  . request()->document->hashName();
-                $request->document[$item]->move(public_path('schemedoc'), $document[$item]);
-                $db1 = new SchemeAttachment($data1);
+                $request->document[$item]->move(public_path('actdoc'), $document[$item]);
+                $db1 = new ActAttachment($data1);
                 $db1->save();
             }
        
         }
-        return redirect()->back()->with('success','Scheme data added successfully!!!');
+        return redirect()->back()->with('success','Act data added successfully!!!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Scheme  $scheme
+     * @param  \App\Act  $act
      * @return \Illuminate\Http\Response
      */
-    public function show(Scheme $scheme)
+    public function show(Act $act)
     {
         //
     }
@@ -84,10 +83,10 @@ class SchemeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Scheme  $scheme
+     * @param  \App\Act  $act
      * @return \Illuminate\Http\Response
      */
-    public function edit(Scheme $scheme)
+    public function edit(Act $act)
     {
         //
     }
@@ -96,10 +95,10 @@ class SchemeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Scheme  $scheme
+     * @param  \App\Act  $act
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Scheme $scheme)
+    public function update(Request $request, Act $act)
     {
         //
     }
@@ -107,13 +106,13 @@ class SchemeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Scheme  $scheme
+     * @param  \App\Act  $act
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
-        $event=Scheme::find($id);
+        $event=Act::find($id);
         $event->delete();
         return redirect()->back()->with('success','Record deleted successfully!!!');
 
