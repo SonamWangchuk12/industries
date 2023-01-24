@@ -31,8 +31,8 @@ Route::resource('orgstructures','OrgStructureController');
 Route::resource('schemes','SchemeController');
 Route::resource('plans','PlanController');
 Route::resource('acts','ActController');
-
-
+Route::resource('onservices','OnlineServiceController');
+Route::resource('offservices','OfflineServiceController');
 
 Route::get('/visitors/rtis','VisitorController@rtipage')->name('visitor.rti');
 Route::get('/visitors/orgview','VisitorController@orgview')->name('visitor.orgview');
@@ -51,6 +51,11 @@ Route::get('/visitors/plandetails/{id}','VisitorController@plandetail')->name('v
 Route::get('/visitors/acts','VisitorController@act')->name('visitor.acts');
 Route::get('/visitors/actdetails/{id}','VisitorController@actdetail')->name('visitor.actdetails');
 
+Route::get('/visitors/offlineservices','VisitorController@offservice')->name('visitor.offlineservices');
+Route::get('/visitors/offlineservicedetails/{id}','VisitorController@offservicedetails')->name('visitor.offlineservicesdetails');
+
+Route::get('/visitors/onlineservices','VisitorController@onservice')->name('visitor.onlineservices');
+Route::get('/visitors/onlineservicedetails/{id}','VisitorController@onservicedetails')->name('visitor.onlineservicesdetails');
 
 Route::resource('visitors','VisitorController');
 

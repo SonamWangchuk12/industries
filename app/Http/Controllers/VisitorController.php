@@ -19,6 +19,11 @@ use App\Plan;
 use App\PlanAttachment;
 use App\Act;
 use App\ActAttachment;
+use App\OnlineService;
+use App\OnlineServiceAttachment;
+use App\OfflineService;
+use App\OfflineServiceAttachment;
+
 
 class VisitorController extends Controller
 {
@@ -171,6 +176,34 @@ class VisitorController extends Controller
         $act_attachments= ActAttachment::where('act_id',$id)->get();
         return view('visitor.actdetails',compact('acts','act_attachments'));
     }
+
+    public function offservice(Request $request)
+    {
+        //
+        $offservices= OfflineService::orderBy('id', 'desc')->get();
+        return view('visitor.offlineservice',compact('offservices'));
+    }
+    public function offservicedetails($id)
+    {
+        //Order::where('user_id', auth()->id)->get();
+        $offservices= OfflineService::find($id);
+        $off_attachments= OfflineServiceAttachment::where('offservice_id',$id)->get();
+        return view('visitor.offservicedetails',compact('offservices','off_attachments'));
+    }
+    public function onservice(Request $request)
+    {
+        //
+        $onservices= OnlineService::orderBy('id', 'desc')->get();
+        return view('visitor.onlineservice',compact('onservices'));
+    }
+    public function onservicedetails($id)
+    {
+        //Order::where('user_id', auth()->id)->get();
+        $onservices= OnlineService::find($id);
+        $on_attachments= OnlineServiceAttachment::where('onservice_id',$id)->get();
+        return view('visitor.onservicedetails',compact('onservices','on_attachments'));
+    }
+
     public function annualreport(Request $request)
     {
         //

@@ -130,8 +130,8 @@
                     </li>
                   <li class="dropdown"><a  href="#"><span>Urban Dev. Department</span> <i class="bi bi-chevron-right"></i></a>
                     <ul>
-                      <li><a  href="#">Offline Services</a></li>
-                      <li><a  href="#">Online Services</a></li>
+                      <li><a  href="{{route('visitor.offlineservices')}}">Offline Services</a></li>
+                      <li><a  href="{{route('visitor.onlineservices')}}">Online Services</a></li>
                     </ul>
                   </li>
                   </ul>

@@ -165,6 +165,28 @@
                     <i class="fas fa-edit"></i></td>
                    
               </tr>
+              <tr>
+                <th scope="row">2.</th>
+                <td>Online Service</td>
+          
+                    <td> <a href="{{route('onservices.create')}}">
+                    <i class="fas fa-edit"></i></td>
+          
+                    <td> <a href="{{route('onservices.index')}}">
+                    <i class="fas fa-edit"></i></td>
+                   
+              </tr>
+              <tr>
+                <th scope="row">2.</th>
+                <td>Offline Services</td>
+          
+                    <td> <a href="{{route('offservices.create')}}">
+                    <i class="fas fa-edit"></i></td>
+          
+                    <td> <a href="{{route('offservices.index')}}">
+                    <i class="fas fa-edit"></i></td>
+                   
+              </tr>
                   </tbody>
             </table>
        </div>
