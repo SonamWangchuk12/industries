@@ -109,17 +109,6 @@
                 <li><a class="nav-link scrollto"  href="{{route('visitor.orgview')}}">Organizational Chart</a></li>
                 <li><a class="nav-link scrollto"  href="{{route('visitor.gallery')}}">Gallery</a></li>
                 <li><a class="nav-link scrollto" href="{{route('visitor.acts')}}">Acts and Rules</a></li>
-                <li class="dropdown"><a  href="#"><span>Downloads</span> <i class="bi bi-chevron-down"></i></a>
-                  <ul>
-                    <li><a  href="{{route('visitor.notifications')}}">Notifications</a></li>
-                    </li>
-                    <li><a  href="{{route('visitor.circulars')}}">Circulars</a></li>
-                    <li><a  href="#">Employment</a></li>
-                    <li><a href="{{route('visitor.tenders')}}">Tenders</a></li>
-                    <li><a  href="#">Annual Reports</a></li>
-                  </ul>
-                </li>
-                <li><a class="nav-link scrollto"  href="#contact">Contact</a></li>
                 <li class="dropdown"><a  href="#"><span>Services</span> <i class="bi bi-chevron-down"></i></a>
                   <ul>
                     <li class="dropdown"><a  href="#"><span>Municipalities</span> <i class="bi bi-chevron-right"></i></a>
@@ -136,6 +125,19 @@
                   </li>
                   </ul>
                 </li>
+                <li class="dropdown"><a  href="#"><span>Downloads</span> <i class="bi bi-chevron-down"></i></a>
+                  <ul>
+                    <li><a  href="{{route('visitor.notifications')}}">Notifications</a></li>
+                    </li>
+                    <li><a  href="{{route('visitor.circulars')}}">Circulars</a></li>
+                    <li><a  href="#">Employment</a></li>
+                    <li><a href="{{route('visitor.tenders')}}">Tenders</a></li>
+                    <li><a  href="#">Annual Reports</a></li>
+                  </ul>
+                </li>
+              
+                
+                <li><a class="nav-link scrollto"  href="#contact">Contact</a></li>
               </ul>
               <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
