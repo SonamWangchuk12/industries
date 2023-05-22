@@ -20,8 +20,8 @@
         <div class="row">
             <div class="col-md-12">
                 @foreach($onservices as $onservice)
-                <ul>
-                <li><a href="{{route('visitor.onlineservicesdetails',[$onservice->id])}}">{{$onservice->name}}</a></li>
+                <ul class="list-group">
+                  <li class="list-group-item"><a href="{{route('visitor.onlineservicesdetails',[$onservice->id])}}">{{$onservice->name}}</a></li>
                 </ul>
                 @endforeach
             </div>

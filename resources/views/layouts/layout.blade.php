@@ -8,6 +8,8 @@
   <title>UDD</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
+{{-- bootstrap --}}
+
 
 {{-- admin css --}}
 
@@ -51,14 +53,13 @@
   <!-- Template Main CSS File -->
   <link  href="{{asset('assets/css/style.css')}}" rel="stylesheet">
 
-  <script src="{{asset('https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')}}"></script>   
   <script type="text/javascript">
   $(window).scroll(function(){
     if($(window).scrollTop()>80){
     
     $("#header").css({"margin-top":"0"})
     }else{
-    $("#header").css({"margin-top":"200px"})
+    $("#header").css({"margin-top":"210px"})
     }
  });
  </script>
@@ -108,7 +109,6 @@
                 <li><a class="nav-link scrollto"  href="{{route('visitor.plans')}}">Plans</a></li>
                 <li><a class="nav-link scrollto"  href="{{route('visitor.orgview')}}">Organizational Chart</a></li>
                 <li><a class="nav-link scrollto"  href="{{route('visitor.gallery')}}">Gallery</a></li>
-                <li><a class="nav-link scrollto" href="{{route('visitor.acts')}}">Acts and Rules</a></li>
                 <li class="dropdown"><a  href="#"><span>Services</span> <i class="bi bi-chevron-down"></i></a>
                   <ul>
                     <li class="dropdown"><a  href="#"><span>Municipalities</span> <i class="bi bi-chevron-right"></i></a>
@@ -125,19 +125,31 @@
                   </li>
                   </ul>
                 </li>
+                <li><a href="#">RERA</a></li>
+                
+                <li class="dropdown"><a  href="#"><span>Municipalities</span> <i class="bi bi-chevron-down"></i></a>
+                  <ul>
+                    <li><a  href="#">Gangtok Municipal Corporation</a></li>
+                    <li><a  href="#">Singtam Nagar Panchayat</a></li>
+                    <li><a  href="#">Rangpo Nagar Panchayat</a></li>
+                    <li><a  href="#">Namchi Municipal Corporation</a></li>
+                    <li><a  href="#">Jorethang Nagar Panchayat</a></li>
+                    <li><a  href="#">GYALSHING NAGAR PANCHAYAT</a></li>
+                    <li><a  href="#">Mangan Nagar Panchayat</a></li>
+                  </ul>
+                </li>
+
                 <li class="dropdown"><a  href="#"><span>Downloads</span> <i class="bi bi-chevron-down"></i></a>
                   <ul>
-                    <li><a  href="{{route('visitor.notifications')}}">Notifications</a></li>
+                    <li><a  href="{{route('visitor.notifications')}}">Notifications <img src="https://icon-library.com/images/new-icon-gif/new-icon-gif-2.jpg" style="height:30px;width:30px"></a></li>
                     </li>
                     <li><a  href="{{route('visitor.circulars')}}">Circulars</a></li>
                     <li><a  href="#">Employment</a></li>
                     <li><a href="{{route('visitor.tenders')}}">Tenders</a></li>
                     <li><a  href="#">Annual Reports</a></li>
+                    <li><a href="{{route('visitor.acts')}}">Acts and Rules</a></li>
                   </ul>
                 </li>
-              
-                
-                <li><a class="nav-link scrollto"  href="#contact">Contact</a></li>
               </ul>
               <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->

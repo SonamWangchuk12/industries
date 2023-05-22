@@ -183,7 +183,7 @@
               <ul>
                 <?php $count=1;?>
                 @foreach($notifications as $notification)
-            <li> {{$count++}}.<span  style='color:red;margin-right:1.25em;'></span><a href="{{asset('notificationdoc')}}/{{$notification->document}}" target="_blank" >{{$notification->name}}</a></li>
+            <li> {{$count++}}.<span  style='color:red;margin-right:1.25em;'></span><a href="{{asset('notificationdoc')}}/{{$notification->document}}" target="_blank" >{{$notification->name}} @if(strtotime($notification->created_at) < strtotime('-30 days')) <img src="https://icon-library.com/images/new-icon-gif/new-icon-gif-2.jpg" style="height:30px;width:30px"> @endif</a></li>
             @endforeach
               </ul>
               <div class="btn-wrap">

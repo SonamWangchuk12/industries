@@ -51,8 +51,10 @@
                                        </div>
                                        <div class="col-lg-12">
                                           <div class="floating-label form-group">
-                                             <input id="password"  class="floating-input form-control @error('password') is-invalid @enderror" name="password" required  type="password" placeholder=" ">
-                                             <label>Password</label>
+                                             <input type="password" class="form-control
+                                             @error('password') is-invalid @enderror"
+                                             name="password" id="password" autocomplete="off"
+                                              />  <label>Password</label>
                                              @error('password')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -60,20 +62,31 @@
                                              @enderror
                                           </div>
                                        </div>
+                                       <input type="hidden" name="hide" id="hide" />
+                                       <input type="hidden" name="random" id="random" />
+                                            <input type="hidden" name="random2" id="random2" />
+                
+                                       <div class="col-lg-12">
+                                          {!! NoCaptcha::renderJs() !!}
+                                          {!! NoCaptcha::display() !!}
+                                          {{ csrf_field() }}
+                                          @if ($errors->has('g-recaptcha-response'))
+                                          <span class="help-block">
+                                              <strong>{{ $errors->first('g-recaptcha-response') }}			</strong>
+                                          </span>
+                                      @endif
+                                        </div>
                                        <div class="col-lg-6">
                                           <div class="custom-control custom-checkbox mb-3">
                                              <input type="checkbox" class="custom-control-input" id="customCheck1">
                                              <label class="custom-control-label control-label-1" for="customCheck1">Remember Me</label>
                                           </div>
                                        </div>
-                                       <div class="col-lg-6">
-                                          <a href="auth-recoverpw.html" class="text-primary float-right">Forgot Password?</a>
-                                       </div>
+                                      
                                     </div>
-                                    <button type="submit" class="btn btn-primary"> {{ __('Login') }}</button>
-                                    <p class="mt-3">
-                                       Create an Account <a href="auth-sign-up.html" class="text-primary">Sign Up</a>
-                                    </p>
+                                    
+                                    <button type="submit"  onclick="return encrypt()" class="btn btn-primary"> {{ __('Login') }}</button>
+                                 
                                  </form>
                               </div>
                            </div>
@@ -101,6 +114,14 @@
     <!-- Chart Custom JavaScript -->
     <script async src="assets/admin/assets/js/chart-custom.js"></script>
     
+
+
+
+    <script src="{{asset('loginjs/encrypt.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9/sha256.js"></script>
+
+
     <!-- app JavaScript -->
     <script src="assets/admin/assets/js/app.js"></script>
   </body>

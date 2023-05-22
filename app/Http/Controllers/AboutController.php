@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\About;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Mews\Purifier\Facades\Purifier;
 
 class AboutController extends Controller
 {
@@ -59,7 +60,8 @@ class AboutController extends Controller
         }
     }
 
-    //    $data=  Purifier::clean(Input::get($request->all()));
+    $cleaned_name = Purifier::clean($request->input('content'));
+    $data['content'] = $cleaned_name;
 
         About::create($data);
         return redirect()->back()->with('success','About us content created
@@ -87,7 +89,8 @@ class AboutController extends Controller
         $about = About::find($id);
       
           $data=$request->all();
-        
+          $cleaned_name = Purifier::clean($request->input('content'));
+          $data['content'] = $cleaned_name;
        
         $about->update($data);
         return redirect()->route('abouts.index')->with('success','Record updated successfully!!!');

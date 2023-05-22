@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\OrgStructure;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Mews\Purifier\Facades\Purifier;
 
 class OrgStructureController extends Controller
 {
@@ -43,8 +44,8 @@ class OrgStructureController extends Controller
       $data=$request->all();
         
 
-    //    $data=  Purifier::clean(Input::get($request->all()));
-
+       $cleaned_name = Purifier::clean($request->input('content'));
+       $data['content'] = $cleaned_name;
         OrgStructure::create($data);
         return redirect()->back()->with('success','Org Structure  content created
         successfully!!!');

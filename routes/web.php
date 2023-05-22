@@ -17,22 +17,32 @@ Route::get('/', function () {
 
 return redirect()->action('VisitorController@index');
 });
-Auth::routes();
-Route::resource('sliders','SliderController');
-Route::resource('cmdatas','CMDataController');
-Route::resource('ministers','MinisterController');
-Route::resource('abouts','AboutController');
-Route::resource('rtis','RTIController');
-Route::resource('circulars','CircularController');
-Route::resource('notifications','NotificationController');
-Route::resource('tenders','TenderController');
-Route::resource('galleries','GalleryController');
-Route::resource('orgstructures','OrgStructureController');
-Route::resource('schemes','SchemeController');
-Route::resource('plans','PlanController');
-Route::resource('acts','ActController');
-Route::resource('onservices','OnlineServiceController');
-Route::resource('offservices','OfflineServiceController');
+Route::group(['middleware' => 'App\Http\Middleware\PreventBackHistory'],function(){
+    Auth::routes();
+   return view('auth.login');
+  });
+
+Route::group(['middleware' => 'App\Http\Middleware\CustomAuth'],function()
+{
+
+    Route::resource('sliders','SliderController');
+    Route::resource('cmdatas','CMDataController');
+    Route::resource('ministers','MinisterController');
+    Route::resource('abouts','AboutController');
+    Route::resource('rtis','RTIController');
+    Route::resource('circulars','CircularController');
+    Route::resource('notifications','NotificationController');
+    Route::resource('tenders','TenderController');
+    Route::resource('galleries','GalleryController');
+    Route::resource('orgstructures','OrgStructureController');
+    Route::resource('schemes','SchemeController');
+    Route::resource('plans','PlanController');
+    Route::resource('acts','ActController');
+    Route::resource('onservices','OnlineServiceController');
+    Route::resource('offservices','OfflineServiceController');
+    
+});
+
 
 Route::get('/visitors/rtis','VisitorController@rtipage')->name('visitor.rti');
 Route::get('/visitors/orgview','VisitorController@orgview')->name('visitor.orgview');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\SchemeAttachment;
 use App\Scheme;
 use Illuminate\Http\Request;
+use Mews\Purifier\Facades\Purifier;
 
 class SchemeController extends Controller
 {
@@ -47,6 +48,8 @@ class SchemeController extends Controller
 
         ]);
         $data = $request->all();
+        $cleaned_name = Purifier::clean($request->input('description'));
+        $data['description'] = $cleaned_name;
         $lastid = Scheme::create($data)->id;
         // dd($request->all());
         if (!empty($request->document)) {

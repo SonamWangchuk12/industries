@@ -46,6 +46,8 @@ class PlanController extends Controller
 
         ]);
         $data = $request->all();
+        $cleaned_name = Purifier::clean($request->input('description'));
+        $data['description'] = $cleaned_name;
         $lastid = Plan::create($data)->id;
         // dd($request->all());
         if (!empty($request->document)) {

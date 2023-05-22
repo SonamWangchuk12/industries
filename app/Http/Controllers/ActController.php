@@ -46,6 +46,8 @@ class ActController extends Controller
 
         ]);
         $data = $request->all();
+        $cleaned_name = Purifier::clean($request->input('content'));
+        $data['content'] = $cleaned_name;
         $lastid = Act::create($data)->id;
         // dd($request->all());
         if (!empty($request->document)) {
