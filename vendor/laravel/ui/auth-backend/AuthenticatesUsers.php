@@ -6,9 +6,8 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
+
 use Illuminate\Support\Facades\DB;
-
-
 trait AuthenticatesUsers
 {
     use RedirectsUsers, ThrottlesLogins;
@@ -33,32 +32,18 @@ trait AuthenticatesUsers
      */
     public function login(Request $request)
     {
+        $this->validateLogin($request);
+        // dd($request->all());
 
-            $this->validateLogin($request);
-            // dd($request->all());
+        $pass = base64_decode($request->password);
+        // dd($request->all(),$pass);
 
-            $pass = base64_decode($request->password);
-            // dd($request->all(),$pass);
-            $new_hash=$request->random;
+        $t = str_replace($request->random, '', $pass) ;
+        $t = str_replace($request->random2, '', $t) ;
+        $request->merge([
+            'password' => $t,
+        ]);
 
-            $quert=DB::select('select * from previous_hash where id = ?', [1]);
-// dd($quert);
-            if($quert[0]->previous_hash==$new_hash)
-            {
-               
-                return $this->sendFailedLoginResponse($request);
-            }
-            else{
-                // dd($quert[0]->previous_hash);
-                DB::update('update previous_hash set previous_hash = ? where id = ?', [$new_hash,1]);
-
-                $this->incrementLoginAttempts($request);
-            }
-            $t = str_replace($request->random, '', $pass) ;
-            $t = str_replace($request->random2, '', $t) ;
-            $request->merge([
-                'password' => $t,
-            ]);
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
         // the login attempts for this application. We'll key this by the username and
         // the IP address of the client making these requests into this application.
@@ -70,6 +55,23 @@ trait AuthenticatesUsers
         }
 
         if ($this->attemptLogin($request)) {
+
+            $new_hash=$pass;
+
+            $quert=DB::select('select * from previous_hash where id = ?', [1]);
+          
+            if($quert[0]->previous_hash==$new_hash)
+            {
+             
+                return $this->sendFailedLoginResponse($request);
+            }
+            else{
+
+                DB::update('update previous_hash set previous_hash = ? where id = ?', [$new_hash,1]);
+
+                $this->incrementLoginAttempts($request);
+            }
+
             return $this->sendLoginResponse($request);
         }
 
@@ -223,4 +225,3 @@ trait AuthenticatesUsers
         return Auth::guard();
     }
 }
-

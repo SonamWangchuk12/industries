@@ -39,6 +39,15 @@ class SliderController extends Controller
     {
         $this->validate($request, ['name'=>'required']);
         $data=$request->all();
+        $allowedContentTypes = ['image/jpeg', 'image/jpg', 'application/pdf', 'image/png'];
+
+        $file = $request->file('document');
+        
+    if (!in_array($file->getClientMimeType(), $allowedContentTypes)) {
+        // Validation failed
+        // abort(403, 'Invalid file type');
+        abort(403, 'Invalid file type.');
+    }
         if ($request->hasFile('document')) {
             //  Let's do everything here
             if ($request->file('document')->isValid()) {

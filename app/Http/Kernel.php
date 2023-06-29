@@ -23,7 +23,10 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         // \App\Http\Middleware\CustomAuth::class,
         \App\Http\Middleware\PreventBackHistory::class,
+        \App\Http\Middleware\PreventTraceMethod::class,
         \App\Http\Middleware\XFrameHeadersMiddleware::class,
+        \App\Http\Middleware\SecurityHeadersMiddleware::class,
+
     ];
 
     /**
@@ -38,6 +41,7 @@ class Kernel extends HttpKernel
             \Illuminate\Session\Middleware\StartSession::class,
             // \Illuminate\Session\Middleware\AuthenticateSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+            \Bepsvpt\SecureHeaders\SecureHeadersMiddleware::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],

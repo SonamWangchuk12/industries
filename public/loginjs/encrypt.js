@@ -22,7 +22,6 @@ function encrypt(){
 
 
     var hash1=window.btoa(hash);
-    // alert(hash1);
     document.getElementById('password').value=hash1;
     return true;
     }

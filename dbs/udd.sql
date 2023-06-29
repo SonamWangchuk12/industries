@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 31, 2023 at 06:49 AM
+-- Generation Time: May 30, 2023 at 08:17 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -423,6 +423,25 @@ CREATE TABLE `plan_attachments` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `previous_hash`
+--
+
+CREATE TABLE `previous_hash` (
+  `id` int(11) DEFAULT NULL,
+  `previous_hash` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `previous_hash`
+--
+
+INSERT INTO `previous_hash` (`id`, `previous_hash`) VALUES
+(1, 'ooavafknnruribravxah'),
+(2, 'eylzuunjwjbwhfspbiuv');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `r_t_i_s`
 --
 
@@ -493,6 +512,20 @@ CREATE TABLE `scheme_attachments` (
 
 INSERT INTO `scheme_attachments` (`id`, `scheme_id`, `name`, `document`, `created_at`, `updated_at`) VALUES
 (1, 14, 'asdasdsada', 'fY36HXZUa5kumSVPZuqYKQqS1EO5VS7eBPYVlVYi.png', '2023-01-23 01:39:40', '2023-01-23 01:39:40');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sections`
+--
+
+CREATE TABLE `sections` (
+  `id` int(11) NOT NULL,
+  `name` varchar(191) NOT NULL,
+  `content` longtext NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -644,7 +677,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'demo', 'demoadmin@gov.in', NULL, '$2y$10$CfBn1v6K76giVs4RH/WOA.SB5nBMkXPniQZ70qvidVsYcNSvYboF.', NULL, '2023-01-08 01:22:06', '2023-01-08 01:22:06');
+(1, 'demo', 'demoadmin@gov.in', NULL, '$2y$10$CfBn1v6K76giVs4RH/WOA.SB5nBMkXPniQZ70qvidVsYcNSvYboF.', NULL, '2023-01-08 01:22:06', '2023-01-08 01:22:06'),
+(2, 'test', 'test@gov.in', NULL, '$2y$10$vZzhMFQA2rtSzEMtzBWRe.SWjruanCDqD36xHaa2vefioBcYWWpS.', NULL, '2023-05-24 23:45:16', '2023-05-24 23:45:16'),
+(3, 'new user', 'new@gov.in', NULL, '$2y$10$.0SvLsbL15UqQYzILhGU6O6.c6wXRBfcW..oYt5ToxkhuYOqwgoFe', NULL, '2023-05-24 23:50:02', '2023-05-24 23:50:02');
 
 -- --------------------------------------------------------
 
@@ -792,6 +827,12 @@ ALTER TABLE `schemes`
 ALTER TABLE `scheme_attachments`
   ADD PRIMARY KEY (`id`),
   ADD KEY `scheme_attachments_scheme_id_index` (`scheme_id`);
+
+--
+-- Indexes for table `sections`
+--
+ALTER TABLE `sections`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `section_admins`
@@ -979,6 +1020,12 @@ ALTER TABLE `scheme_attachments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `sections`
+--
+ALTER TABLE `sections`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `section_admins`
 --
 ALTER TABLE `section_admins`
@@ -1030,7 +1077,7 @@ ALTER TABLE `tenders`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `visitors`

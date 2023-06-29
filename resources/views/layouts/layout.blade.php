@@ -166,7 +166,7 @@
 <footer id="footer">
 
   <div class="footer-top">
-    <div class="container">
+    {{-- <div class="container">
       <div class="row">
 
         <div class="col-lg-3 col-md-6">
@@ -220,7 +220,7 @@
         </div>
 
       </div>
-    </div>
+    </div> --}}
   </div>
   
   <div class="row2 small" style="background-color:white">

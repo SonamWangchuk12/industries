@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Tender;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class TenderController extends Controller
 {
@@ -41,6 +42,25 @@ class TenderController extends Controller
     {
         //
         $this->validate($request, ['name'=>'required']);
+        $validator = Validator::make($request->all(), [
+            'document' => 'required|file|mimes:jpg,pdf,png,jpeg|max:3048',
+        ], [
+            'document.mimes' => 'The document must be a file of type: jpg, pdf, png, jpeg.',
+        ]);
+        $allowedContentTypes = ['image/jpeg', 'image/jpg', 'application/pdf', 'image/png'];
+
+        $file = $request->file('document');
+        
+    if ($validator->fails() ||  !in_array($file->getClientMimeType(), $allowedContentTypes)) {
+        // Validation failed
+        // abort(403, 'Invalid file type');
+        abort(403, 'Invalid file type.');
+    }
+        if ($validator->fails()) {
+            // Validation failed
+            // abort(403, 'Invalid file type');
+            abort(403, 'Unauthorized action.');
+        }
         $data=$request->all();
         if ($request->hasFile('document')) {
             //  Let's do everything here

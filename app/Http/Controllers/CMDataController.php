@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\CMData;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CMDataController extends Controller
 {
@@ -40,6 +41,21 @@ class CMDataController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, ['name'=>'required']);
+        $validator = Validator::make($request->all(), [
+            'photo' => 'required|file|mimes:jpg,pdf,png,jpeg|max:3048',
+        ], [
+            'photo.mimes' => 'The document must be a file of type: jpg, pdf, png, jpeg.',
+        ]);
+       
+        $allowedContentTypes = ['image/jpeg', 'image/jpg', 'application/pdf', 'image/png'];
+
+            $file = $request->file('photo');
+            
+        if ($validator->fails() ||  !in_array($file->getClientMimeType(), $allowedContentTypes)) {
+            // Validation failed
+            // abort(403, 'Invalid file type');
+            abort(403, 'Invalid file type.');
+        }
         $data=$request->all();
         if ($request->hasFile('photo')) {
             //  Let's do everything here
