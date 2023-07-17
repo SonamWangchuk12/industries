@@ -56,11 +56,7 @@ class TenderController extends Controller
         // abort(403, 'Invalid file type');
         abort(403, 'Invalid file type.');
     }
-        if ($validator->fails()) {
-            // Validation failed
-            // abort(403, 'Invalid file type');
-            abort(403, 'Unauthorized action.');
-        }
+    
         $data=$request->all();
         if ($request->hasFile('document')) {
             //  Let's do everything here

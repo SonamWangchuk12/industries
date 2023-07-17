@@ -48,11 +48,15 @@ class GalleryController extends Controller
             'photo.mimes' => 'The document must be a file of type: jpg, pdf, png, jpeg.',
         ]);
         
-        if ($validator->fails()) {
-            // Validation failed
-            // abort(403, 'Invalid file type');
-            abort(403, 'Unauthorized action.');
-        }
+        $allowedContentTypes = ['image/jpeg', 'image/jpg', 'application/pdf', 'image/png'];
+
+        $file = $request->file('photo');
+        
+    if ($validator->fails() ||  !in_array($file->getClientMimeType(), $allowedContentTypes)) {
+        // Validation failed
+        // abort(403, 'Invalid file type');
+        abort(403, 'Invalid file type.');
+    }
         $data=$request->all();
         if ($request->hasFile('photo')) {
             //  Let's do everything here
