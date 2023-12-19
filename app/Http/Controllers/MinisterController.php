@@ -74,7 +74,7 @@ class MinisterController extends Controller
         }
         // dd('here');
         Minister::create($data);
-        return redirect()->back()->with('success','Minister Data created successfully!!!');
+        return redirect()->back()->with('success','Governer Data created successfully!!!');
     }
 
     /**
@@ -138,7 +138,7 @@ class MinisterController extends Controller
         }
         $data['photo'] = $photo;
         $ministers->update($data);
-        return redirect()->route('minister.index')->with('success','Record updated successfully!!!');
+        return redirect()->route('ministers.index')->with('success','Record updated successfully!!!');
     }
 
     /**
@@ -152,6 +152,6 @@ class MinisterController extends Controller
         //
         $ministers=Minister::find($id);
         $ministers->delete();
-        return redirect()->route('admin.minister.index')->with('message','Record deleted successfully!!!');
+        return redirect()->route('ministers.index')->with('message','Record deleted successfully!!!');
     }
 }

@@ -35,6 +35,17 @@
             </tr>
             <tr>
               <th scope="row">2.</th>
+              <td>Governer</td>
+        
+                  <td> <a href="{{route('govdatas.create')}}">
+                  <i class="fas fa-edit"></i></td>
+        
+                  <td> <a href="{{route('govdatas.index')}}">
+                  <i class="fas fa-edit"></i></td>
+                 
+              </tr>
+            <tr>
+              <th scope="row">3.</th>
               <td>Minister</td>
         
                   <td> <a href="{{route('ministers.create')}}">
@@ -45,7 +56,7 @@
                  
               </tr>
               <tr>
-                <th scope="row">2.</th>
+                <th scope="row">4.</th>
                 <td>About Us Content</td>
           
                     <td> <a href="{{route('abouts.create')}}">
@@ -56,7 +67,7 @@
                    
                 </tr>
                 <tr>
-                  <th scope="row">2.</th>
+                  <th scope="row">5.</th>
                   <td>RTI</td>
             
                       <td> <a href="{{route('rtis.create')}}">
@@ -67,7 +78,7 @@
                      
                   </tr>
                   <tr>
-                    <th scope="row">2.</th>
+                    <th scope="row">6.</th>
                     <td>Circulars</td>
               
                         <td> <a href="{{route('circulars.create')}}">
@@ -78,8 +89,8 @@
                        
                     </tr>
                     <tr>
-                      <th scope="row">2.</th>
-                      <td>Notifications</td>
+                      <th scope="row">7.</th>
+                      <td>Reports</td>
                 
                           <td> <a href="{{route('notifications.create')}}">
                           <i class="fas fa-edit"></i></td>
@@ -89,7 +100,7 @@
                          
                       </tr>
                       <tr>
-                        <th scope="row">2.</th>
+                        <th scope="row">8.</th>
                         <td>Tender</td>
                   
                             <td> <a href="{{route('tenders.create')}}">
@@ -100,7 +111,7 @@
                            
                         </tr>
               <tr>
-                <th scope="row">2.</th>
+                <th scope="row">9.</th>
                 <td>Sliders</td>
           
                     <td> <a href="{{route('sliders.create')}}">
@@ -111,7 +122,7 @@
                    
               </tr>
               <tr>
-                <th scope="row">2.</th>
+                <th scope="row">10.</th>
                 <td>Gallery</td>
           
                     <td> <a href="{{route('galleries.create')}}">
@@ -122,7 +133,7 @@
                    
               </tr>
               <tr>
-                <th scope="row">2.</th>
+                <th scope="row">11.</th>
                 <td>Organization Structure</td>
           
                     <td> <a href="{{route('orgstructures.create')}}">
@@ -133,7 +144,7 @@
                    
               </tr>
               <tr>
-                <th scope="row">2.</th>
+                <th scope="row">12.</th>
                 <td>Schemes/Programmes</td>
           
                     <td> <a href="{{route('schemes.create')}}">
@@ -144,46 +155,35 @@
                    
               </tr>
               <tr>
-                <th scope="row">2.</th>
-                <td>Plans</td>
+                <th scope="row">13.</th>
+                <td>Sections/Branches</td>
           
-                    <td> <a href="{{route('plans.create')}}">
+                    <td> <a href="{{route('sections.create')}}">
                     <i class="fas fa-edit"></i></td>
           
-                    <td> <a href="{{route('plans.index')}}">
-                    <i class="fas fa-edit"></i></td>
-                   
-              </tr>
-              <tr>
-                <th scope="row">2.</th>
-                <td>Acts and Regulations</td>
-          
-                    <td> <a href="{{route('acts.create')}}">
-                    <i class="fas fa-edit"></i></td>
-          
-                    <td> <a href="{{route('acts.index')}}">
+                    <td> <a href="{{route('sections.index')}}">
                     <i class="fas fa-edit"></i></td>
                    
               </tr>
               <tr>
-                <th scope="row">2.</th>
-                <td>Online Service</td>
+                <th scope="row">14.</th>
+                <td>District Industries Center</td>
           
-                    <td> <a href="{{route('onservices.create')}}">
+                    <td> <a href="{{route('dics.create')}}">
                     <i class="fas fa-edit"></i></td>
           
-                    <td> <a href="{{route('onservices.index')}}">
+                    <td> <a href="{{route('dics.index')}}">
                     <i class="fas fa-edit"></i></td>
                    
               </tr>
               <tr>
-                <th scope="row">2.</th>
-                <td>Offline Services</td>
+                <th scope="row">15.</th>
+                <td>Events</td>
           
-                    <td> <a href="{{route('offservices.create')}}">
+                    <td> <a href="{{route('events.create')}}">
                     <i class="fas fa-edit"></i></td>
           
-                    <td> <a href="{{route('offservices.index')}}">
+                    <td> <a href="{{route('events.index')}}">
                     <i class="fas fa-edit"></i></td>
                    
               </tr>

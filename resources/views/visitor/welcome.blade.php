@@ -54,7 +54,7 @@
           </div>
           <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
             <div class="content d-flex flex-column justify-content-center">
-              <h3>Urban Development Department</h3>
+              <h3>Commerce and Industries Department</h3>
               <p>
                 {!! $abouts->content !!} 
               </p>
@@ -68,52 +68,114 @@
 
       </div>
     </section><!-- End About Section -->
+    <section id="messages" class="messages">
 
+      <div class="container" data-aos="fade-up">
+  
+        <div class="section-title">
+          <h2>Our Government</h2>
+          <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
+        </div>
+  
+        <div class="row content flex-wrap justify-content-between ">
+        <div class="col-lg-12" data-aos="fade-right">
+            <h1>Commerce And Industries Department.</h1>
+            <h2>Government Of Sikkim.</h2>
+        </div>
+
+      <div class="container">
+        <br/>
+        <br/>
+        <div class="d-flex justify-content-around">
+          <div> <img  src="{{asset('govdataphoto')}}/{{$govdata->photo}}" style="border-radius:70px;height:180px;width:180px">
+              <h5> {{$govdata->name}}</h5>
+                <h5>{{$govdata->designation}}</h5></div>
+          <div>
+            <img  src="{{asset('cmphoto')}}/{{$cmdatas->photo}}" style="border-radius:70px;height:180px;width:180px">
+            <h5> {{$cmdatas->name}}</h5>
+              <h5>{{$cmdatas->designation}}</h5>     </div>
+  
+              <div>
+                <img  src="{{asset('ministerphoto')}}/{{$minisdatas->photo}}" style="border-radius:70px;height:180px;width:180px">
+              <h5> {{$minisdatas->name}}</h5>
+                <h5>{{$minisdatas->designation}}</h5>
+            </div>
+        </div>
+  
+        
+       
+  
+      </div>
+  
+  
+      </div>
+      </div>
+      </section>
    
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
+    <section id="pricing" class="pricing">
       <div class="container">
 
         <div class="section-title">
-          <h2>Sections</h2>
+          <h2>Latest Updates</h2>
           {{-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> --}}
         </div>
 
         <div class="row">
-          <div class="col-lg-4 col-md-6 icon-box">
-            <div class="icon"><i class="bi bi-trash"></i></div>
-            <h4 class="title"><a href="">Sanitation</a></h4>
-            {{-- <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p> --}}
+
+          <div class="col-lg-4 col-md-6">
+            <div class="box">
+              <h3>Tenders/Quotations</h3>
+              {{-- <h4><sup>$</sup>0<span> / month</span></h4> --}}
+              <ul>
+                <?php $count=1;?>
+                @foreach($tenders as $tender)
+            <li>  {{$count++}}.<span  style='color:red;margin-right:1.25em;'></span><a href="{{asset('tenderdoc')}}/{{$tender->document}}" target="_blank" >{{$tender->name}}</a></li>
+            @endforeach
+               
+              </ul>
+              <div class="btn-wrap">
+                <a href="{{route('visitor.tenders')}}" class="btn-buy">View More</a>
+              </div>
+            </div>
           </div>
-          <div class="col-lg-4 col-md-6 icon-box">
-            <div class="icon"><i class="bi bi-building"></i></div>
-            <h4 class="title"><a href="">Engineering</a></h4>
-            {{-- <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p> --}}
+
+          <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
+            <div class="box">
+              <h3>Reports</h3>
+              {{-- <h4><sup>$</sup>19<span> / month</span></h4> --}}
+              <ul>
+                <?php $count=1;?>
+                @foreach($notifications as $notification)
+            <li> {{$count++}}.<span  style='color:red;margin-right:1.25em;'></span><a href="{{asset('notificationdoc')}}/{{$notification->document}}" target="_blank" >{{$notification->name}} @if(strtotime($notification->created_at) < strtotime('-30 days')) <img src="https://icon-library.com/images/new-icon-gif/new-icon-gif-2.jpg" style="height:30px;width:30px"> @endif</a></li>
+            @endforeach
+              </ul>
+              <div class="btn-wrap">
+                <a href="{{route('visitor.notifications')}}" class="btn-buy">View More</a>
+              </div>
+            </div>
           </div>
-          <div class="col-lg-4 col-md-6 icon-box">
-            <div class="icon"><i class="bi bi-calendar4-week"></i></div>
-            <h4 class="title"><a href="">Town Planning</a></h4>
-            {{-- <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p> --}}
+
+          <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
+            <div class="box">
+              <h3>Circulars/Notifications</h3>
+              {{-- <h4><sup>$</sup>29<span> / month</span></h4> --}}
+              <ul>
+                <?php $count=1;?>
+                @foreach($circulars as $circular)
+                <li> {{$count++}}. <span  style='color:red;margin-right:1.25em;'></span><a href="{{asset('circulardoc')}}/{{$circular->document}}" target="_blank" >{{$circular->name}}</a></li>
+                @endforeach
+              </ul>
+              <div class="btn-wrap">
+                <a href="{{route('visitor.circulars')}}" class="btn-buy">View More</a>
+              </div>
+            </div>
           </div>
-          <div class="col-lg-4 col-md-6 icon-box">
-            <div class="icon"><i class="bi bi-card-checklist"></i></div>
-            <h4 class="title"><a href="">Administration</a></h4>
-            {{-- <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p> --}}
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box">
-            <div class="icon"><i class="bi bi-laptop"></i></div>
-            <h4 class="title"><a href="">Information Technology</a></h4>
-            {{-- <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p> --}}
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box">
-            <div class="icon"><i class="bi bi-house-fill"></i></div>
-            <h4 class="title"><a href="">Municipality</a></h4>
-            {{-- <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p> --}}
-          </div>
+
         </div>
 
       </div>
-    </section><!-- End Services Section -->
+    </section><!-- End Pricing Section -->
+
 
     <!-- ======= Why Us Section ======= -->
    
@@ -146,179 +208,88 @@
 
     </section><!-- End Portfolio Section -->
 
-    <!-- ======= Team Section ======= -->
 
-    <!-- ======= Pricing Section ======= -->
-    <section id="pricing" class="pricing">
-      <div class="container">
+{{-- Contact  --}}
 
-        <div class="section-title">
-          <h2>Latest Updates</h2>
-          {{-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> --}}
-        </div>
+<section id="contact" class="contact">
+  <div class="container" data-aos="fade-up">
 
-        <div class="row">
+    <div class="section-title">
+      <h2>Contact Us</h2>
+    </div>
 
-          <div class="col-lg-4 col-md-6">
-            <div class="box">
-              <h3>Tenders</h3>
-              {{-- <h4><sup>$</sup>0<span> / month</span></h4> --}}
-              <ul>
-                <?php $count=1;?>
-                @foreach($tenders as $tender)
-            <li>  {{$count++}}.<span  style='color:red;margin-right:1.25em;'></span><a href="{{asset('tenderdoc')}}/{{$tender->document}}" target="_blank" >{{$tender->name}}</a></li>
-            @endforeach
-               
-              </ul>
-              <div class="btn-wrap">
-                <a href="{{route('visitor.tenders')}}" class="btn-buy">View More</a>
-              </div>
-            </div>
+    <div class="row">
+
+      <div class="col-lg-5 d-flex align-items-stretch">
+        <div class="info">
+          <div class="address">
+            <i class="icofont-google-map"></i>
+            <h4>Location:</h4>
+            <p>Udyog Bhawan, below Sikkim Press, Upper Tadong, Tadong, Gangtok, Sikkim 737102</p>
           </div>
 
-          <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
-            <div class="box">
-              <h3>Notifications</h3>
-              {{-- <h4><sup>$</sup>19<span> / month</span></h4> --}}
-              <ul>
-                <?php $count=1;?>
-                @foreach($notifications as $notification)
-            <li> {{$count++}}.<span  style='color:red;margin-right:1.25em;'></span><a href="{{asset('notificationdoc')}}/{{$notification->document}}" target="_blank" >{{$notification->name}} @if(strtotime($notification->created_at) < strtotime('-30 days')) <img src="https://icon-library.com/images/new-icon-gif/new-icon-gif-2.jpg" style="height:30px;width:30px"> @endif</a></li>
-            @endforeach
-              </ul>
-              <div class="btn-wrap">
-                <a href="{{route('visitor.notifications')}}" class="btn-buy">View More</a>
-              </div>
-            </div>
+          <div class="email">
+            <i class="icofont-envelope"></i>
+            <h4>Email:</h4>
+            <p>sikkimindustries[at]gmail[dot]com </p>
           </div>
 
-          <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
-            <div class="box">
-              <h3>Circulars</h3>
-              {{-- <h4><sup>$</sup>29<span> / month</span></h4> --}}
-              <ul>
-                <?php $count=1;?>
-                @foreach($circulars as $circular)
-                <li> {{$count++}}. <span  style='color:red;margin-right:1.25em;'></span><a href="{{asset('circulardoc')}}/{{$circular->document}}" target="_blank" >{{$circular->name}}</a></li>
-                @endforeach
-              </ul>
-              <div class="btn-wrap">
-                <a href="{{route('visitor.circulars')}}" class="btn-buy">View More</a>
-              </div>
-            </div>
+          <div class="phone">
+            <i class="icofont-phone"></i>
+            <h4>Call:</h4>
+            <p>+91 3592 202746</p>
           </div>
-
+             
+          
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3545.1346322431987!2d88.59266157545332!3d27.308974776413194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e6a58165260a3f%3A0xd23f04beb8b4a764!2sDepartment%20of%20Commerce%20%26%20Industries!5e0!3m2!1sen!2sin!4v1694944943735!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0; width: 100%; height: 300px;" allowfullscreen></iframe>
+          {{-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28356.082570637318!2d88.60139519203373!3d27.328509817607603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e6a53e04d69df7%3A0x4036e9907ce9c48!2sSikkim%20Police%20Headquarters!5e0!3m2!1sen!2sin!4v1651642237158!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe> --}}
         </div>
 
       </div>
-    </section><!-- End Pricing Section -->
 
-    <!-- ======= Frequently Asked Questions Section ======= -->
-    <section id="faq" class="faq section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Frequently Asked Questions</h2>
-          {{-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> --}}
-        </div>
-
-        <div class="faq-list">
-          <ul>
-            <li data-aos="fade-up">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">Non consectetur a erat nam at lectus urna duis? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
-                <p>
-                  Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
-                </p>
-              </div>
-            </li>
-
-            <li data-aos="fade-up" data-aos-delay="100">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">Feugiat scelerisque varius morbi enim nunc? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
-                <p>
-                  Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-                </p>
-              </div>
-            </li>
-
-            <li data-aos="fade-up" data-aos-delay="200">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">Dolor sit amet consectetur adipiscing elit? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
-                <p>
-                  Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
-                </p>
-              </div>
-            </li>
-
-            <li data-aos="fade-up" data-aos-delay="300">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4" class="collapsed">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
-                <p>
-                  Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in.
-                </p>
-              </div>
-            </li>
-
-            <li data-aos="fade-up" data-aos-delay="400">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
-                <p>
-                  Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque.
-                </p>
-              </div>
-            </li>
-
-          </ul>
-        </div>
-
-      </div>
-    </section><!-- End Frequently Asked Questions Section -->
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Contact</h2>
-          {{-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> --}}
-        </div>
-
-        <div class="row contact-info">
-
-          <div class="col-md-4">
-            <div class="contact-address">
-              <i class="bi bi-geo-alt"></i>
-              <h3>Address</h3>
-              <address>Urban Development Department,
-                Government of Sikkim,
-                Hospital Dara,
-                Gangtok</address>
+      <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+      <form action="{{route('newcomplains.store')}}" method="POST" enctype="multipart/form-data" class="php-email-form"> @csrf
+           <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="name">Your Name</label>
+              <input type="text" name="name" autocomplete="off" class="form-control" id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+              <div class="validate"></div>
+            </div>
+          </div>
+           <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="name">Your Email</label>
+              <input type="email" class="form-control" autocomplete="off" name="email" id="email" data-rule="email" data-msg="Please enter a valid email" />
+              <div class="validate"></div>
             </div>
           </div>
 
-          <div class="col-md-4">
-            <div class="contact-phone">
-              <i class="bi bi-phone"></i>
-              <h3>Phone Number</h3>
-              <p><a href="tel:+155895548855">03592-202726</a></p>
-            </div>
+          <div class="form-group">
+            <label for="name">Contact Number</label>
+            <input type="text" class="form-control" name="phone" autocomplete="off" id="phone" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+            <div class="validate"></div>
+          </div>
+          
+            <div class="form-group">
+            <label for="name">Your Query</label>
+
+           <textarea rows="6" cols="15" class="form-control" autocomplete="off" name="subject" id="subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" ></textarea>
+            <div class="validate"></div>
+          </div>
+          <div class="mb-3">
+          <div class="col-md-8">
+
+          </div>
+          <div class="text-center"><button type="submit" onClick="showMessage()">Contact Us</button>
+            </form>
+
           </div>
 
-          <div class="col-md-4">
-            <div class="contact-email">
-              <i class="bi bi-envelope"></i>
-              <h3>Email</h3>
-              <p><a href="mailto:info@example.com">udd[dot]gos[at]sikkim[dot]gov[dot]in<br/>udhdsikkim[at]gmail[dot]com</a></p>
-            </div>
-          </div>
+               </div>
 
-        </div>
+    </div>
 
-     
-
-      </div>
-    </section><!-- End Contact Section -->
+</section><!-- End Contact Section -->
 
      <!-- ======= Clients Section ======= -->
    

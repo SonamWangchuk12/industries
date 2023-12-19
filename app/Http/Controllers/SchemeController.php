@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use App\SchemeLink;
 use App\SchemeAttachment;
 use App\Scheme;
 use Illuminate\Http\Request;
@@ -70,6 +72,26 @@ class SchemeController extends Controller
             }
        
         }
+
+
+        if (!empty($request->link)) {
+            foreach ($request->link as $item => $value) {
+
+                $link[$item] = $request->link[$item];
+                $linkname[$item] =$request->linkname[$item];
+                $data2 = array(
+                    'name'      => $linkname[$item],
+                    'scheme_id' => $lastid,
+                    'link' => $link[$item],
+                );
+                // $fileName = "schemedoc-"  . request()->document->hashName();
+                
+                $db2 = new SchemeLink($data2);
+                $db2->save();
+            }
+       
+        }
+
         return redirect()->back()->with('success','Scheme data added successfully!!!');
     }
 

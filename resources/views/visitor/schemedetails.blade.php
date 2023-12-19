@@ -27,7 +27,16 @@
                   <li><a href="{{asset('schemedoc')}}/{{$attachment->document}}" target="_blank">{{$attachment->name}}</a></li>
                 </ul>
                 @endforeach
-               </div>
+
+                @if(isset($scheme_links))
+                @foreach($scheme_links as $attachment)
+                <ul>
+                  <li><a href="{{$attachment->link}}" target="_blank">{{$attachment->name}}</a></li>
+                </ul>
+                @endforeach
+               
+              @endif
+            </div>
         </div>
     </div>
   </section>

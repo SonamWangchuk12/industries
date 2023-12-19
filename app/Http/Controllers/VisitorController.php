@@ -6,23 +6,26 @@ use App\Visitor;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\About;
+use App\Minister;
+use App\CMData;
+use App\EventAttachment;
+use App\Event;
+use App\DIC;
 use App\Slider;
 use App\Notification;
 use App\Tender;
 use App\Circular;
+
+use App\GovData;
 use App\RTI;
 use App\Gallery;
 use App\OrgStructure;
 use App\Scheme;
+use App\SchemeLink;
 use App\SchemeAttachment;
-use App\Plan;
-use App\PlanAttachment;
-use App\Act;
-use App\ActAttachment;
-use App\OnlineService;
-use App\OnlineServiceAttachment;
-use App\OfflineService;
-use App\OfflineServiceAttachment;
+use App\Section;
+use App\SectionAttachment;
+
 
 
 class VisitorController extends Controller
@@ -41,7 +44,11 @@ class VisitorController extends Controller
         $notifications= Notification::orderBy('id', 'desc')->take(5)->get();
         $tenders= Tender::orderBy('id', 'desc')->take(5)->get();
         $circulars= Circular::orderBy('id', 'desc')->take(5)->get();
-        return view('visitor.welcome',compact('sliders','abouts','notifications','circulars','tenders','galleries'));
+        
+        $govdata= GovData::latest()->first();
+        $minisdatas= Minister::latest()->first();
+        $cmdatas= CMData::latest()->first();
+        return view('visitor.welcome',compact('govdata','sliders','abouts','notifications','circulars','tenders','galleries','cmdatas','minisdatas'));
     }
 
     /**
@@ -146,9 +153,23 @@ class VisitorController extends Controller
         //Order::where('user_id', auth()->id)->get();
         $schemes= Scheme::find($id);
         $scheme_attachments= SchemeAttachment::where('scheme_id',$id)->get();
-        return view('visitor.schemedetails',compact('schemes','scheme_attachments'));
+        
+        $scheme_links= SchemeLink::where('scheme_id',$id)->get();
+        return view('visitor.schemedetails',compact('schemes','scheme_attachments','scheme_links'));
     }
-
+    public function section(Request $request)
+    {
+        //
+        $sections= Section::orderBy('id', 'desc')->get();
+        return view('visitor.section',compact('sections'));
+    }
+    public function sectiondetail($id)
+    {
+        //Order::where('user_id', auth()->id)->get();
+        $sections= Section::find($id);
+        $section_attachments= SectionAttachment::where('section_id',$id)->get();
+        return view('visitor.sectiondetails',compact('sections','section_attachments'));
+    }
     public function plan(Request $request)
     {
         //
@@ -221,5 +242,20 @@ class VisitorController extends Controller
         //
         $orgstructures= OrgStructure::latest()->first();
         return view('visitor.orgstructureview',compact('orgstructures'));
+    }
+
+    public function dics(Request $request)
+    {
+        //
+        $dics= DIC::latest()->first();
+        return view('visitor.dic',compact('dics'));
+    }
+    public function events(Request $request)
+    {
+        //
+        $events = Event::with('attachments')->orderBy('id', 'desc')->get();
+
+        $eventath=EventAttachment::all();
+        return view('visitor.event',compact('events','eventath'));
     }
 }

@@ -14,10 +14,10 @@
     <div class="container">
 
       <div class="d-flex justify-content-between align-items-center">
-        <h2>Notifications</h2>
+        <h2>Reports</h2>
         <ol>
           <li><a href="">Home</a></li>
-          <li>Notifications</li>
+          <li>Reports</li>
         </ol>
       </div>
 

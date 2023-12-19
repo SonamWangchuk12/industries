@@ -70,7 +70,7 @@
                                     <th>Action</th>
                                     </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="attachment">
                                     </tbody>
 
                                     </table>
@@ -82,6 +82,43 @@
 
                                     </div>
                                     <!-- /.col -->
+
+
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                        Add Links&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="javascript:void(0);" class="addRowLink"><button type="button"  class="btn btn-success">Add Link
+                                        </button>
+                                        </a>
+                                        </div>
+    
+                                        </div>
+
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+        
+                                            <div class="table-responsive">
+                                            <table class="table table-bordered" width="100%" cellspacing="0">
+                                            <thead>
+                                            <tr>
+                                            <th>Name</th>
+                                            <th>Link</th>
+                                            <th>Action</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="hyperlink">
+                                            </tbody>
+        
+                                            </table>
+        
+                                            </div>
+        
+        
+                                            </div>
+        
+                                            </div>
                            </div>   
                            <br/>                        
                            <button type="submit" class="btn btn-primary mr-2">Add Content</button>
@@ -115,7 +152,7 @@
                 '<td><input type="file" name="document[]" class="form-control" id="document"></td>' +
     '<td><a href="javascript:void(0);" required class="remove1"><button type="button" class="btn btn-danger romove1">Remove </button> </a></td>' +
                 '</tr>';
-            $('tbody').append(tr);
+            $('#attachment').append(tr);
         }
         $('.form-group').on("click", ".remove1", function (e) {
             var last = $('tbody tr').length;
@@ -123,6 +160,25 @@
         });
     </script>
 
+
+<script>
+
+    $('.addRowLink').on('click', function () {
+        addRowLink();
+        });
+        
+        function addRowLink() {
+            var tr = '<tr>' +'<td> <input type="text" name="linkname[]" class="form-control" placeholder="Enter Name" required></td>'+
+                '<td> <input type="text" name="link[]" class="form-control" placeholder="Enter Link" required></td>' +
+    '<td><a href="javascript:void(0);" required class="remove1"><button type="button" class="btn btn-danger romove1">Remove </button> </a></td>' +
+                '</tr>';
+            $('#hyperlink').append(tr);
+        }
+        $('.form-group').on("click", ".remove1", function (e) {
+            var last = $('tbody tr').length;
+            $(this).parent().parent().remove();
+        });
+    </script>
 
 
 

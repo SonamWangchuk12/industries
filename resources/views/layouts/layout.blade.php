@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>UDD</title>
+  <title>Commerce And Industries Dept, Govt. of Sikkim</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 {{-- bootstrap --}}
@@ -73,26 +73,11 @@
   @endphp
   <section id="topbar" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
-      @if(!empty($cmdata->photo))
-      <a  href="#" class="logo"><img src="{{asset('cmphoto')}}/{{$cmdata->photo}}"" style="padding-top:30px;" alt="" class="img-fluid" >
-        <p>{{$cmdata->name}}</p>
-        <p>{{$cmdata->designation}}</p></a>
-     
-      @else
-       <a  href="#" class="logo"><img src="{{asset('assets/img/logo.png')}}" alt="" class="img-fluid"></a>
-       @endif
+
        <a  href="#" class="logo"><img src="{{asset('assets/img/logo.png')}}" alt="" class="img-fluid"></a>
        <a  href="#" class="logo"><img src="{{asset('assets/img/logoline.png')}}" alt="" class="img-fluid"></a>
        <a  href="#" class="logo"><img src="{{asset('assets/img/g20.png')}}" alt="" class="img-fluid"></a>
-       @if(!empty($ministerdata->photo))
-       <a  href="#" class="logo"><img src="{{asset('ministerphoto')}}/{{$ministerdata->photo}}"" style="padding-top:30px;" alt="" class="img-fluid" >
-         <p>{{$ministerdata->name}}</p>
-         <p>{{$ministerdata->designation}}</p></a>
-      
-       @else
-        <a  href="#" class="logo"><img src="{{asset('assets/img/logo.png')}}" alt="" class="img-fluid"></a>
-        @endif  {{-- <h1 class="logo"><a  href="{{asset#">Urban Development Department</a></h1> --}}
-      <!-- Uncomment below if you prefer to use an image logo -->
+
      
     </div>
       </section>
@@ -103,51 +88,43 @@
             <nav id="navbar" class="navbar">
               <ul>
                 <li><a class="nav-link scrollto active"  href="/">Home</a></li>
-                <li><a class="nav-link"  href="{{route('visitor.rti')}}">RTI</a></li>
-                <li><a class="nav-link scrollto"  href="#services">Sections</a></li>
-                <li><a class="nav-link scrollto "  href="{{route('visitor.schemes')}}">Schemes/Programs</a></li>
-                <li><a class="nav-link scrollto"  href="{{route('visitor.plans')}}">Plans</a></li>
-                <li><a class="nav-link scrollto"  href="{{route('visitor.orgview')}}">Organizational Chart</a></li>
-                <li><a class="nav-link scrollto"  href="{{route('visitor.gallery')}}">Gallery</a></li>
-                <li class="dropdown"><a  href="#"><span>Services</span> <i class="bi bi-chevron-down"></i></a>
+                <li class="dropdown"><a  href="#"><span>About Us</span> <i class="bi bi-chevron-down"></i></a>
                   <ul>
-                    <li class="dropdown"><a  href="#"><span>Municipalities</span> <i class="bi bi-chevron-right"></i></a>
-                      <ul>
-                        <li><a  href="#">Deep Drop Down 1</a></li>
-                        <li><a  href="#">Deep Drop Down 2</a></li>
-                      </ul>
-                    </li>
-                  <li class="dropdown"><a  href="#"><span>Urban Dev. Department</span> <i class="bi bi-chevron-right"></i></a>
-                    <ul>
-                      <li><a  href="{{route('visitor.offlineservices')}}">Offline Services</a></li>
-                      <li><a  href="{{route('visitor.onlineservices')}}">Online Services</a></li>
-                    </ul>
-                  </li>
+                        <li><a   href="{{route('visitor.orgview')}}">Organizational Setup</a></li>
+                        <li><a  href="{{route('visitor.dics')}}">District Industries Center</a></li>
+                        <li><a  href="#">Offices under Department</a></li>
+                        <li><a href="{{route('visitor.sections')}}">Sections/Branches</a></li>
+                        <li><a  href="#">Office Directory</a></li>
+                        <li><a  href="#">North East Industrial Development Scheme-Notification (NEIDS)</a></li>
+                       
                   </ul>
                 </li>
-                <li><a href="#">RERA</a></li>
+                {{-- <li class="dropdown"><a  href="#"><span>Food Processing</span> <i class="bi bi-chevron-down"></i></a>
+                  <ul>
+                        <li><a  href="#">Introduction</a></li>
+                        <li><a  href="#">National Level Structure</a></li>
+                        <li><a  href="#">State Level Structure</a></li>
+                        <li><a  href="#">Funding Pattern of NFMP</a></li>
+                        <li><a  href="#">Fruits & Vegetables</a></li>
+                        <li><a  href="#">Dairy Sector</a></li>
+                        <li><a  href="#">Drinks & Beverages</a></li>
+                        <li><a  href="#">Model Project Profile</a></li>
+                  </ul>
+                </li> --}}
                 
-                <li class="dropdown"><a  href="#"><span>Municipalities</span> <i class="bi bi-chevron-down"></i></a>
+                <li><a class="nav-link scrollto"   href="{{route('visitor.schemes')}}">Schemes and Guidelines</a></li>
+                <li><a class="nav-link scrollto "  href="/visitors#contact">Grievances</a></li>
+                <li><a class="nav-link scrollto "  href="{{route('visitor.rti')}}">RTI</a></li>
+                <li><a class="nav-link scrollto" href="{{route('visitor.event')}}">Events</a></li>
+                <li><a class="nav-link scrollto"  href="#">Awards & Achievements</a></li>
+                <li><a class="nav-link scrollto"  href="{{route('visitor.gallery')}}">Gallery</a></li>
+                <li class="dropdown"><a  href="#"><span>Important Links</span> <i class="bi bi-chevron-down"></i></a>
                   <ul>
-                    <li><a  href="#">Gangtok Municipal Corporation</a></li>
-                    <li><a  href="#">Singtam Nagar Panchayat</a></li>
-                    <li><a  href="#">Rangpo Nagar Panchayat</a></li>
-                    <li><a  href="#">Namchi Municipal Corporation</a></li>
-                    <li><a  href="#">Jorethang Nagar Panchayat</a></li>
-                    <li><a  href="#">GYALSHING NAGAR PANCHAYAT</a></li>
-                    <li><a  href="#">Mangan Nagar Panchayat</a></li>
+                        <li><a  href="#">Link 1</a></li>
+                        <li><a  href="#">Link 2</a></li>
+                        <li><a  href="#">Link 3</a></li>
                   </ul>
                 </li>
-
-                <li class="dropdown"><a  href="#"><span>Downloads</span> <i class="bi bi-chevron-down"></i></a>
-                  <ul>
-                    <li><a  href="{{route('visitor.notifications')}}">Notifications <img src="https://icon-library.com/images/new-icon-gif/new-icon-gif-2.jpg" style="height:30px;width:30px"></a></li>
-                    </li>
-                    <li><a  href="{{route('visitor.circulars')}}">Circulars</a></li>
-                    <li><a  href="#">Employment</a></li>
-                    <li><a href="{{route('visitor.tenders')}}">Tenders</a></li>
-                    <li><a  href="#">Annual Reports</a></li>
-                    <li><a href="{{route('visitor.acts')}}">Acts and Rules</a></li>
                   </ul>
                 </li>
               </ul>
@@ -263,6 +240,7 @@
 <script src="{{asset('assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
 <script src="{{asset('assets/vendor/php-email-form/validate.js')}}"></script>
 
+<link href="{{ url('/assets/vendor/icofont/icofont.min.css') }}" rel="stylesheet">
 <!-- Template Main JS File -->
 <script src="{{asset('assets/js/main.js')}}"></script>
 

@@ -1,8 +1,7 @@
 @extends('layouts.admin.layout')
 
 @section('content')
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-  <script>tinymce.init({selector:'textarea'});</script>
+
 
 <div class="content-page">
     <div class="container-fluid add-form-list">
@@ -49,6 +48,10 @@
                                     @enderror
                                     </div>
                                 </div>
+                                <script src="{{asset('admin/ckeditor/ckeditor.js')}}"></script>
+                                <script>
+                                    CKEDITOR.replace('content');
+                                </script>
                             </div>
                            </div>                            
                            <button type="submit" class="btn btn-primary mr-2">Add Data</button>

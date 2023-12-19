@@ -42,10 +42,7 @@ class OrgStructureController extends Controller
         $this->validate($request, ['name'=>'required','content'=>'required']);
 
       $data=$request->all();
-        
 
-       $cleaned_name = Purifier::clean($request->input('content'));
-       $data['content'] = $cleaned_name;
         OrgStructure::create($data);
         return redirect()->back()->with('success','Org Structure  content created
         successfully!!!');

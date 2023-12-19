@@ -52,7 +52,7 @@
 
    <h2 style="color: #fff; text-transform: uppercase;
    font-size: 49px;font-weight: 800;line-height: 74px ;max-width: 700px;" id="new">
-    Culture Department</h2>
+    Commerce and Industries Department</h2>
 
 
     <p class="ale ale-success" style="max-width: 700px;" id="new">
