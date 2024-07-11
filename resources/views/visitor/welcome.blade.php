@@ -12,15 +12,15 @@
           <!-- Slide 1 -->
           <div class="carousel-item active" style="background-image:url('{{asset('sliderphoto')}}/{{$sliders[0]->document}}')">
             <div class="carousel-container">
-             
+
             </div>
           </div>
 
           <!-- Slide 2 -->
-          @for ($i=1;$i<3;$i++)
+          @for ($i=1;$i<7;$i++)
           <div class="carousel-item" style="background-image:url('{{asset('sliderphoto')}}/{{$sliders[$i]->document}}')">
             <div class="carousel-container">
-            
+
             </div>
           </div>
           @endfor
@@ -56,12 +56,12 @@
             <div class="content d-flex flex-column justify-content-center">
               <h3>Commerce and Industries Department</h3>
               <p>
-                {!! $abouts->content !!} 
+                {!! $abouts->content !!}
               </p>
 
-              
 
-              
+
+
             </div><!-- End .content-->
           </div>
         </div>
@@ -71,12 +71,12 @@
     <section id="messages" class="messages">
 
       <div class="container" data-aos="fade-up">
-  
+
         <div class="section-title">
           <h2>Our Government</h2>
           <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
         </div>
-  
+
         <div class="row content flex-wrap justify-content-between ">
         <div class="col-lg-12" data-aos="fade-right">
             <h1>Commerce And Industries Department.</h1>
@@ -94,24 +94,24 @@
             <img  src="{{asset('cmphoto')}}/{{$cmdatas->photo}}" style="border-radius:70px;height:180px;width:180px">
             <h5> {{$cmdatas->name}}</h5>
               <h5>{{$cmdatas->designation}}</h5>     </div>
-  
+
               <div>
                 <img  src="{{asset('ministerphoto')}}/{{$minisdatas->photo}}" style="border-radius:70px;height:180px;width:180px">
               <h5> {{$minisdatas->name}}</h5>
                 <h5>{{$minisdatas->designation}}</h5>
             </div>
         </div>
-  
-        
-       
-  
+
+
+
+
       </div>
-  
-  
+
+
       </div>
       </div>
       </section>
-   
+
     <section id="pricing" class="pricing">
       <div class="container">
 
@@ -131,8 +131,10 @@
                 @foreach($tenders as $tender)
             <li>  {{$count++}}.<span  style='color:red;margin-right:1.25em;'></span><a href="{{asset('tenderdoc')}}/{{$tender->document}}" target="_blank" >{{$tender->name}}</a></li>
             @endforeach
-               
+
               </ul>
+
+              <br/>
               <div class="btn-wrap">
                 <a href="{{route('visitor.tenders')}}" class="btn-buy">View More</a>
               </div>
@@ -149,6 +151,8 @@
             <li> {{$count++}}.<span  style='color:red;margin-right:1.25em;'></span><a href="{{asset('notificationdoc')}}/{{$notification->document}}" target="_blank" >{{$notification->name}} @if(strtotime($notification->created_at) < strtotime('-30 days')) <img src="https://icon-library.com/images/new-icon-gif/new-icon-gif-2.jpg" style="height:30px;width:30px"> @endif</a></li>
             @endforeach
               </ul>
+
+              <br/>
               <div class="btn-wrap">
                 <a href="{{route('visitor.notifications')}}" class="btn-buy">View More</a>
               </div>
@@ -165,6 +169,7 @@
                 <li> {{$count++}}. <span  style='color:red;margin-right:1.25em;'></span><a href="{{asset('circulardoc')}}/{{$circular->document}}" target="_blank" >{{$circular->name}}</a></li>
                 @endforeach
               </ul>
+              <br/>
               <div class="btn-wrap">
                 <a href="{{route('visitor.circulars')}}" class="btn-buy">View More</a>
               </div>
@@ -178,7 +183,7 @@
 
 
     <!-- ======= Why Us Section ======= -->
-   
+
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio">
       <div class="container">
@@ -192,19 +197,19 @@
           @foreach($galleries as $gallery)
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
-           
+
               <img src="{{asset('galleryimg')}}/{{$gallery->photo}}" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>{{$gallery->name}}</h4>
-              
+
               </div>
             </div>
           </div>
             @endforeach
       </div>
-          
+
       </div>
-        
+
 
     </section><!-- End Portfolio Section -->
 
@@ -239,8 +244,8 @@
             <h4>Call:</h4>
             <p>+91 3592 202746</p>
           </div>
-             
-          
+
+
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3545.1346322431987!2d88.59266157545332!3d27.308974776413194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e6a58165260a3f%3A0xd23f04beb8b4a764!2sDepartment%20of%20Commerce%20%26%20Industries!5e0!3m2!1sen!2sin!4v1694944943735!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0; width: 100%; height: 300px;" allowfullscreen></iframe>
           {{-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28356.082570637318!2d88.60139519203373!3d27.328509817607603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e6a53e04d69df7%3A0x4036e9907ce9c48!2sSikkim%20Police%20Headquarters!5e0!3m2!1sen!2sin!4v1651642237158!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe> --}}
         </div>
@@ -269,7 +274,7 @@
             <input type="text" class="form-control" name="phone" autocomplete="off" id="phone" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
             <div class="validate"></div>
           </div>
-          
+
             <div class="form-group">
             <label for="name">Your Query</label>
 
@@ -280,7 +285,7 @@
           <div class="col-md-8">
 
           </div>
-          <div class="text-center"><button type="submit" onClick="showMessage()">Contact Us</button>
+          <div class="text-center"><button type="submit" onClick="showMessage()">Submit</button>
             </form>
 
           </div>
@@ -292,7 +297,7 @@
 </section><!-- End Contact Section -->
 
      <!-- ======= Clients Section ======= -->
-   
+
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

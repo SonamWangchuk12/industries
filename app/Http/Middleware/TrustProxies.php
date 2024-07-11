@@ -19,12 +19,12 @@ class TrustProxies extends Middleware
      *
      * @var int
      */
-     
+
     protected $headers = Request::HEADER_X_FORWARDED_ALL;
     public function handle(Request $request, Closure $next)
     {
-        $trustedHosts = [config('app.url'),'127.0.0.1','164.100.126.170'];
-        
+        $trustedHosts = [config('app.url'),'127.0.0.1','164.100.126.191'];
+
         if (!in_array($request->getHost(), $trustedHosts)) {
             return response('Invalid Host header', 400);
         }

@@ -33,7 +33,7 @@
 <link rel="stylesheet" href="{{asset('assets/admin/assets/css/backend.css?v=1.0.0')}}">
 <link rel="stylesheet" href="{{asset('assets/admin/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css')}}">
 <link rel="stylesheet" href="{{asset('assets/admin/assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css')}}">
-<link rel="stylesheet" href="{{asset('assets/admin/assets/vendor/remixicon/fonts/remixicon.css')}}">  
+<link rel="stylesheet" href="{{asset('assets/admin/assets/vendor/remixicon/fonts/remixicon.css')}}">
 {{-- end admin css --}}
   <!-- Favicons -->
   <link  href="{{asset('assets/img/favicon.png')}}" rel="icon">
@@ -56,7 +56,7 @@
   <script type="text/javascript">
   $(window).scroll(function(){
     if($(window).scrollTop()>80){
-    
+
     $("#header").css({"margin-top":"0"})
     }else{
     $("#header").css({"margin-top":"210px"})
@@ -70,6 +70,7 @@
   @php
   $cmdata= App\CMData::latest()->first();
   $ministerdata= App\Minister::latest()->first();
+  $linksimp=App\ImportantLink::orderBy('id', 'desc')->get();
   @endphp
   <section id="topbar" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
@@ -78,13 +79,13 @@
        <a  href="#" class="logo"><img src="{{asset('assets/img/logoline.png')}}" alt="" class="img-fluid"></a>
        <a  href="#" class="logo"><img src="{{asset('assets/img/g20.png')}}" alt="" class="img-fluid"></a>
 
-     
+
     </div>
       </section>
         <!-- ======= Header ======= -->
         <header id="header" class="fixed-top d-flex align-items-center">
           <div class="d-flex align-items-center justify-content-between">
-           
+
             <nav id="navbar" class="navbar">
               <ul>
                 <li><a class="nav-link scrollto active"  href="/">Home</a></li>
@@ -92,11 +93,12 @@
                   <ul>
                         <li><a   href="{{route('visitor.orgview')}}">Organizational Setup</a></li>
                         <li><a  href="{{route('visitor.dics')}}">District Industries Center</a></li>
-                        <li><a  href="#">Offices under Department</a></li>
-                        <li><a href="{{route('visitor.sections')}}">Sections/Branches</a></li>
-                        <li><a  href="#">Office Directory</a></li>
-                        <li><a  href="#">North East Industrial Development Scheme-Notification (NEIDS)</a></li>
-                       
+                        <li><a href="{{route('visitor.officesofdept')}}">Offices under Department</a></li>
+                        {{-- <li><a href="{{route('visitor.sections')}}">Sections/Branches</a></li> --}}
+                        <li><a  href="{{route('visitor.officerdirectories')}}">Officer Directory</a></li>
+
+                        <li><a  href="{{route('visitor.companiesandindustries')}}">Industries and Companies</a></li>
+                        <li><a  href="{{route('visitor.psu')}}">Public Sector Undertaking</a></li>
                   </ul>
                 </li>
                 {{-- <li class="dropdown"><a  href="#"><span>Food Processing</span> <i class="bi bi-chevron-down"></i></a>
@@ -111,32 +113,34 @@
                         <li><a  href="#">Model Project Profile</a></li>
                   </ul>
                 </li> --}}
-                
+
                 <li><a class="nav-link scrollto"   href="{{route('visitor.schemes')}}">Schemes and Guidelines</a></li>
                 <li><a class="nav-link scrollto "  href="/visitors#contact">Grievances</a></li>
                 <li><a class="nav-link scrollto "  href="{{route('visitor.rti')}}">RTI</a></li>
                 <li><a class="nav-link scrollto" href="{{route('visitor.event')}}">Events</a></li>
-                <li><a class="nav-link scrollto"  href="#">Awards & Achievements</a></li>
+                <li><a class="nav-link scrollto"  href="{{route('visitor.awardsdata')}}">Awards & Achievements</a></li>
                 <li><a class="nav-link scrollto"  href="{{route('visitor.gallery')}}">Gallery</a></li>
                 <li class="dropdown"><a  href="#"><span>Important Links</span> <i class="bi bi-chevron-down"></i></a>
-                  <ul>
-                        <li><a  href="#">Link 1</a></li>
-                        <li><a  href="#">Link 2</a></li>
-                        <li><a  href="#">Link 3</a></li>
-                  </ul>
+                    <ul class="sub-menu text-muted font-small">
+                        @if(count($linksimp)>0)
+                        @foreach($linksimp as $pro1)
+                        <li><a href="{{$pro1->link}}">{{$pro1->name}}</a></li>
+                        @endforeach
+                        @endif
+                    </ul>
                 </li>
                   </ul>
                 </li>
               </ul>
               <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
-      
+
           </div>
         </header><!-- End Header -->
-        
+
 @yield('content')
 
-  
+
 </main><!-- End #main -->
 
 <!-- ======= Footer ======= -->
@@ -199,21 +203,21 @@
       </div>
     </div> --}}
   </div>
-  
+
   <div class="row2 small" style="background-color:white">
     <div class="imagegroup2" style="animation-delay: 1s; ">
 
-    <a  href="https://mohua.gov.in/" target="_blank"> <img src="{{asset('logos/mohua_logo.png')}}" alt=""></a>&nbsp;&nbsp;&nbsp;
         <a  href="https://www.sikkim.gov.in"target="_blank"> <img src="{{asset('logos/sikkgov.png')}}"alt=""></a>
-        <a  href="https://mdoner.gov.in"target="_blank"> <img src="{{asset('logos/MDONER.jfif')}}"alt=""></a>
-        <a  href="https://smartcities.gov.in/"target="_blank"> <img src="{{asset('logos/smartcity.png')}}"alt=""></a>
-        <a  href="http://amrut.gov.in/content/"target="_blank"> <img src="{{asset('logos/amrut.png')}}"alt=""></a>
-        <a  href="https://www.sbmurban.org/"target="_blank"> <img src="{{asset('logos/sbmurban.png')}}"alt=""></a>
-        <a  href="https://www.pradhanmantriyojana.co.in/pm-awas-yojana/"target="_blank"> <img src="{{asset('logos/PMAY.png')}}"alt=""></a>
-        <a  href="https://nulm.gov.in/"target="_blank"> <img src="{{asset('logos/NULM.png')}}"alt=""></a>
+        <a  href="https://pmfme.mofpi.gov.in/pmfme/#/Home-Page"target="_blank"> <img src="{{asset('logos/pmfme.png')}}"alt=""></a>
+        <a  href="https://unnati.dpiit.gov.in//"target="_blank"> <img src="{{asset('logos/unnati.png')}}"alt=""></a>
 
-        
-        
+        <a  href="https://pmvishwakarma.gov.in/"target="_blank"> <img src="{{asset('logos/pfme.png')}}"alt="" ></a>
+
+        <a  href="https://scsthub.in/"target="_blank"> <img src="{{asset('logos/nssh.png')}}"alt="" ></a>
+        <a  href="https://sfurti.msme.gov.in/SFURTI/Home.aspx"target="_blank"> <img src="{{asset('logos/sfurti.jfif')}}"alt="" ></a>
+        <a  href="https://msme.gov.in/prime-minister-employment-generation-programme-and-other-credit-support-schemes"target="_blank"> <img src="{{asset('logos/pmegp.png')}}"alt=""></a>
+
+
      </div>
 
 
@@ -223,7 +227,7 @@
       &copy; Copyright <strong><span>DIT</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
-      
+
     </div>
   </div>
 </footer>

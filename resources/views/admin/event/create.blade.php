@@ -1,8 +1,7 @@
 @extends('layouts.admin.layout')
 
 @section('content')
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-  <script>tinymce.init({selector:'textarea'});</script>
+
 
 <div class="content-page">
     <div class="container-fluid add-form-list">
@@ -24,14 +23,14 @@
                    <div class="card-body">
                        <form action="{{route('events.store')}}" method="POST" enctype="multipart/form-data" data-toggle="validator"> @csrf
                            <div class="row">
-                               <div class="col-md-12">                                    
+                               <div class="col-md-12">
                                    <div class="form-group">
                                        <label>Name </label>
                                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Enter Name" required>
                                        <div class="help-block with-errors"></div>
                                    </div>
                                </div>
-                               <div class="col-md-12">                                    
+                               <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Description </label>
                                     <textarea id="area" name ="description"class="form-control @error('description') is-invalid @enderror" row="9" cols="80"></textarea>
@@ -55,9 +54,9 @@
 
                                     </div>
                                     <!-- /.col -->
-                                  
 
-                                  
+
+
                                     <div class="col-md-12">
                                     <div class="form-group">
 
@@ -82,8 +81,8 @@
 
                                     </div>
                                     <!-- /.col -->
-                           </div>   
-                           <br/>                        
+                           </div>
+                           <br/>
                            <button type="submit" class="btn btn-primary mr-2">Add Content</button>
                            <button type="reset" class="btn btn-danger">Reset</button>
                        </form>
@@ -109,7 +108,7 @@
     $('.addRow').on('click', function () {
             addRow();
         });
-        
+
         function addRow() {
             var tr = '<tr>' +'<td> <input type="text" name="docname[]" class="form-control" placeholder="Enter Name" required></td>'+
                 '<td><input type="file" name="document[]" class="form-control" id="document"></td>' +

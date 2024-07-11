@@ -25,6 +25,8 @@ Route::group(['middleware' => 'App\Http\Middleware\PreventBackHistory'],function
 Route::group(['middleware' => 'App\Http\Middleware\CustomAuth'],function()
 {
 
+    Route::resource('officesofdepts','OfficeOfDeptController');
+    Route::resource('officerdirectories','OfficerDirectoryController');
     Route::resource('sliders','SliderController');
     Route::resource('cmdatas','CMDataController');
     Route::resource('ministers','MinisterController');
@@ -37,17 +39,35 @@ Route::group(['middleware' => 'App\Http\Middleware\CustomAuth'],function()
     Route::resource('orgstructures','OrgStructureController');
     Route::resource('schemes','SchemeController');
     Route::resource('sections','SectionController');
-    
+
     Route::resource('events','EventController');
     Route::resource('dics','DICController');
     Route::resource('newcomplains', 'ReceivedComplainController');
-    
+
+    Route::resource('psus', 'PSUController');
+    Route::resource('implinks', 'ImportantLinkController');
+    Route::resource('awards', 'AwardController');
     Route::resource('govdatas', 'GovDataController');
+
+    Route::resource('companies', 'CompanyController');
+
 
 });
 
 
+Route::get('/visitors/industriesandcompanies','VisitorController@companiesandindustries')->name('visitor.companiesandindustries');
+
+Route::get('/visitors/awards','VisitorController@awardsdata')->name('visitor.awardsdata');
+
+Route::get('/visitors/psus','VisitorController@psu')->name('visitor.psu');
+
+Route::get('/visitors/psusdetails/{id}','VisitorController@psusdetail')->name('visitor.psusdetails');
 Route::get('/visitors/rtis','VisitorController@rtipage')->name('visitor.rti');
+
+Route::get('/visitors/eventdetails/{id}','VisitorController@eventdetails')->name('visitor.eventdetails');
+Route::get('/visitors/officesofdept','VisitorController@officesofdept')->name('visitor.officesofdept');
+
+Route::get('/visitors/officerdirectories','VisitorController@officerdirectories')->name('visitor.officerdirectories');
 
 Route::get('/visitors/events','VisitorController@events')->name('visitor.event');
 Route::get('/visitors/dics','VisitorController@dics')->name('visitor.dics');

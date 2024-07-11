@@ -6,7 +6,7 @@
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <title>Admin Login|Commerce and Industries</title>
-      
+
 
       <!-- Favicon -->
       <link rel="shortcut icon" href="{{asset('assets/admin/assets/images/favicon.ico')}}" />
@@ -14,7 +14,7 @@
       <link rel="stylesheet" href="{{asset('assets/admin/assets/css/backend.css?v=1.0.0')}}">
       <link rel="stylesheet" href="{{asset('assets/admin/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css')}}">
       <link rel="stylesheet" href="{{asset('assets/admin/assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css')}}">
-      <link rel="stylesheet" href="{{asset('assets/admin/assets/vendor/remixicon/fonts/remixicon.css')}}">  
+      <link rel="stylesheet" href="{{asset('assets/admin/assets/vendor/remixicon/fonts/remixicon.css')}}">
     </head>
   <body class="  ">
     <!-- loader Start -->
@@ -25,7 +25,7 @@
     <!-- loader END -->
     <!-- Wrapper Start -->
     <div class="wrapper">
-      
+
       <div class="iq-sidebar  sidebar-default ">
           <div class="iq-sidebar-logo d-flex align-items-center justify-content-between">
               <a href="{{route('home')}}" class="header-logo">
@@ -39,7 +39,7 @@
               <nav class="iq-sidebar-menu">
                   <ul id="iq-sidebar-toggle" class="iq-menu">
                       <li class="active">
-                          <a href="/home" class="svg-icon">                        
+                          <a href="/home" class="svg-icon">
                               <svg  class="svg-icon" id="p-dash1" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                   <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line>
                               </svg>
@@ -47,7 +47,7 @@
                           </a>
                       </li>
                       <li>
-                        <a href="{{route('newcomplains.index')}}" class="svg-icon">                        
+                        <a href="{{route('newcomplains.index')}}" class="svg-icon">
                             <svg  class="svg-icon" id="p-dash1" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line>
                             </svg>
@@ -57,10 +57,10 @@
 
                   </ul>
               </nav>
-             
+
               <div class="p-3"></div>
           </div>
-          </div>      
+          </div>
           <div class="iq-top-navbar">
           <div class="iq-navbar-custom">
               <nav class="navbar navbar-expand-lg navbar-light p-0">
@@ -69,7 +69,7 @@
                       <a href="../backend/index.html" class="header-logo">
                           <img src="{{asset('assets/admin/assets/images/logo.png')}}" class="img-fluid rounded-normal" alt="logo">
                           <h5 class="logo-title ml-3">ADMIN Data Entry</h5>
-      
+
                       </a>
                   </div>
                   <div class="iq-search-bar device-search">
@@ -82,7 +82,7 @@
                       </button>
                       <div class="collapse navbar-collapse" id="navbarSupportedContent">
                           <ul class="navbar-nav ml-auto navbar-list align-items-right">
-                        
+
                               <li class="nav-item nav-icon dropdown caption-content">
                                   <a href="#" class="search-toggle dropdown-toggle" id="dropdownMenuButton4"
                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -146,10 +146,10 @@
                   </div>
               </div>
           </div>
-      </div>      
+      </div>
 
       @yield('content')
-      
+
       <footer class="iq-footer">
         <div class="container-fluid">
         <div class="card">
@@ -168,6 +168,12 @@
             </div>
         </div>
     </div>
+    <script src="{{asset('admin/ckeditor/ckeditor.js')}}"></script>
+    <script>
+        CKEDITOR.replace('content');
+        CKEDITOR.replace('description');
+    </script>
+
 </footer>
 <!-- Backend Bundle JavaScript -->
 <script src="{{asset('assets/admin/assets/js/backend-bundle.min.js')}}"></script>

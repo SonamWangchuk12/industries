@@ -23,7 +23,7 @@
                    <div class="card-body">
                        <form action="{{route('orgstructures.store')}}" method="POST" enctype="multipart/form-data" data-toggle="validator"> @csrf
                            <div class="row">
-                               <div class="col-md-12">                                    
+                               <div class="col-md-12">
                                    <div class="form-group">
                                        <label>Name </label>
                                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Enter Name" required>
@@ -36,16 +36,19 @@
                                         </div>
                                    </div>
                                </div>
-                               <div class="col-md-12">                                    
+                               <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>Content </label>
-                                    <textarea id="area" name ="content"class="form-control @error('name') is-invalid @enderror" row="9" cols="80"></textarea>
-                                    <div class="help-block with-errors">
-                                    @error('content')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+                                    <label>Enter Content</label>
+                       <textarea id="area" name ="content" class="form-control @error('name') is-invalid @enderror" row="9" cols="80"></textarea>
+                                @error('content')
+                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                                <script src="{{asset('admin/ckeditor/ckeditor.js')}}"></script>
+                                                <script>
+                                                    CKEDITOR.replace('content');
+                                                </script>
                                     </div>
                                 </div>
                                 <script src="{{asset('admin/ckeditor/ckeditor.js')}}"></script>
@@ -53,7 +56,7 @@
                                     CKEDITOR.replace('content');
                                 </script>
                             </div>
-                           </div>                            
+                           </div>
                            <button type="submit" class="btn btn-primary mr-2">Add Data</button>
                            <button type="reset" class="btn btn-danger">Reset</button>
                        </form>

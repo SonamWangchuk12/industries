@@ -116,7 +116,7 @@ h6 {
 # Navigation Menu
 --------------------------------------------------------------*/
 /**
-* Desktop Navigation 
+* Desktop Navigation
 */
 .navbar {
     padding: 0;
@@ -280,7 +280,7 @@ h6 {
 }
 
 /**
-* Mobile Navigation 
+* Mobile Navigation
 */
 .mobile-nav-toggle {
     color: #fff;
@@ -1110,7 +1110,7 @@ section {
 # Pricing
 --------------------------------------------------------------*/
 .pricing .box {
-    height: 400px;
+    height: 450px;
     padding: 20px;
     background: #f7f7f7;
     border-radius: 8px;

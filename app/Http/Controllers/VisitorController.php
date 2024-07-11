@@ -16,6 +16,9 @@ use App\Notification;
 use App\Tender;
 use App\Circular;
 
+use App\Company;
+use App\Award;
+use App\PSU;
 use App\GovData;
 use App\RTI;
 use App\Gallery;
@@ -26,6 +29,9 @@ use App\SchemeAttachment;
 use App\Section;
 use App\SectionAttachment;
 
+use App\OfficerDirectory;
+
+use App\OfficeOfDept;
 
 
 class VisitorController extends Controller
@@ -38,13 +44,13 @@ class VisitorController extends Controller
     public function index()
     {
         //
-        $sliders= Slider::orderBy('id', 'desc')->take(3)->get();
+        $sliders= Slider::orderBy('id', 'desc')->take(7)->get();
         $galleries= Gallery::orderBy('id', 'desc')->take(9)->get();
         $abouts= About::latest()->first();
         $notifications= Notification::orderBy('id', 'desc')->take(5)->get();
         $tenders= Tender::orderBy('id', 'desc')->take(5)->get();
         $circulars= Circular::orderBy('id', 'desc')->take(5)->get();
-        
+
         $govdata= GovData::latest()->first();
         $minisdatas= Minister::latest()->first();
         $cmdatas= CMData::latest()->first();
@@ -153,10 +159,37 @@ class VisitorController extends Controller
         //Order::where('user_id', auth()->id)->get();
         $schemes= Scheme::find($id);
         $scheme_attachments= SchemeAttachment::where('scheme_id',$id)->get();
-        
+
         $scheme_links= SchemeLink::where('scheme_id',$id)->get();
         return view('visitor.schemedetails',compact('schemes','scheme_attachments','scheme_links'));
     }
+
+    public function psu(Request $request)
+    {
+        //
+        $schemes= PSU::orderBy('id', 'desc')->get();
+        return view('visitor.psudata',compact('schemes'));
+    }
+    public function psusdetail($id)
+    {
+        //Order::where('user_id', auth()->id)->get();
+        $schemes= PSU::find($id);
+        return view('visitor.psudetails',compact('schemes'));
+    }
+    public function companiesandindustries(Request $request)
+    {
+        //Order::where('user_id', auth()->id)->get();
+        $schemes= Company::orderBy('id', 'desc')->get();
+        return view('visitor.companyandindustries',compact('schemes'));
+    }
+
+    public function awardsdata(Request $request)
+    {
+        //
+        $circulars= Award::orderBy('id', 'desc')->get();
+        return view('visitor.award',compact('circulars'));
+    }
+
     public function section(Request $request)
     {
         //
@@ -250,12 +283,39 @@ class VisitorController extends Controller
         $dics= DIC::latest()->first();
         return view('visitor.dic',compact('dics'));
     }
+
+
+    public function officerdirectories(Request $request)
+    {
+        //
+        $officerdirectory= OfficerDirectory::latest()->first();
+
+        return view('visitor.officerdirectory',compact('officerdirectory'));
+    }
+
+
+    public function officesofdept(Request $request)
+    {
+        //
+        $officedept= OfficeOfDept::latest()->first();
+
+        return view('visitor.officeunderdept',compact('officedept'));
+    }
+
+
     public function events(Request $request)
     {
         //
         $events = Event::with('attachments')->orderBy('id', 'desc')->get();
 
-        $eventath=EventAttachment::all();
+        $eventath=0;
         return view('visitor.event',compact('events','eventath'));
+    }
+    public function eventdetails($id)
+    {
+        //Order::where('user_id', auth()->id)->get();
+        $events= Event::with('attachments')->find($id);
+        $event_attachments= EventAttachment::where('event_id',$id)->get();
+        return view('visitor.eventdetails',compact('events','event_attachments'));
     }
 }

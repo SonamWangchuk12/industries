@@ -42,14 +42,13 @@ class AboutController extends Controller
         $this->validate($request, ['name'=>'required','content'=>'required']);
 
       $data=$request->all();
-        
+
       if ($request->hasFile('photo')) {
         //  Let's do everything here
         if ($request->file('photo')->isValid()) {
             //
             $validated = $request->validate([
                 'name' => 'string|max:40',
-                'designation' => 'string|max:40',
                 'photo' => 'mimes:jpeg,png|max:2048',
             ]);
             // $fileName = "cmphoto-"  . request()->photo->hashName();
@@ -87,11 +86,11 @@ class AboutController extends Controller
         $this->validate($request, ['name'=>'required','content'=>'required'
         ]);
         $about = About::find($id);
-      
+
           $data=$request->all();
           $cleaned_name = Purifier::clean($request->input('content'));
           $data['content'] = $cleaned_name;
-       
+
         $about->update($data);
         return redirect()->route('abouts.index')->with('success','Record updated successfully!!!');
     }
